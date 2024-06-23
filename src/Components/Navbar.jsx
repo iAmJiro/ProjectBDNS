@@ -1,9 +1,9 @@
+
+
 export default function Navbar() {
     return (
 
         <>
-
-
             <nav class="bg-white border-gray-200 dark:bg-gray-900">
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between ml-20 mr-16 p-4">
                     <div className="flex">
@@ -12,10 +12,10 @@ export default function Navbar() {
                     </div>
                     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         <div class="flex flex-row gap-2">
-                        <button className = "w-48 h-10 text-white font-semibold flex items-center justify-center cursor-pointer">
- Shop now
- <svg class="w-3" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
-</button>
+                            <button className="w-48 h-10 text-white font-semibold flex items-center justify-center cursor-pointer">
+                                Shop now
+                                <svg class="w-3" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+                            </button>
                             {/* <div
                                
                                 class="w-14 h-14 bg-gradient-to-r from-indigo-500  rounded-full bg-radial bg-gradient-to-tr animate-spin [animation-delay:.7s]"
@@ -42,6 +42,9 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
                             </li>
                         </ul>
                     </div>
