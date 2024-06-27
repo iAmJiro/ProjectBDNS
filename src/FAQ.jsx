@@ -1,45 +1,37 @@
 import React from 'react';
-import { Navbar } from Navbar;
+import DropDown from './Dropdown';
+import './FAQ.css';
 
-export default function FAQ() {
-    return (
-        <div>
-            <Navbar />
-            <h1>How can we help you?</h1>
+const FAQ = () => {
+  const faqData = [
+    { question: 'Question 1', answer: 'Answer 1' },
+    { question: 'Question 2', answer: 'Answer 2' },
+    { question: 'Question 3', answer: 'Answer 3' },
+    { question: 'Question 4', answer: 'Answer 4' },
+    { question: 'Question 5', answer: 'Answer 5' },
+    { question: 'Question 6', answer: 'Answer 6' },
+    { question: 'Question 7', answer: 'Answer 7' },
+    { question: 'Question 8', answer: 'Answer 8' },
+  ];
 
-            <h1>Frequently Asked Questions</h1>
-            <div></div>
+  return (
+    <div className="faq-container">
+      <h1>How can we help you?</h1>
+      <div className="faq-grid">
+        {faqData.map((item, index) => (
+          <Dropdown key={index} question={item.question} answer={item.answer} />
+        ))}
+      </div>
 
+      <form className="contact-form">
+        <h2>Ask a question</h2>
+        <input type="text" name="fullname" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="comment" placeholder="Comment" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  );
+};
 
-            <div className="form-input-wrapper">
-
-                <div className="form-input-group">
-                    <input type="text" placeholder="Name" name="name" />
-                    <span></span>
-                </div>
-                <div className="form-input-group">
-                    <input type="email" name="email" placeholder="Email" className="email" />
-                    <span></span>
-                </div>
-            </div>
-            <div className="form-input-group">
-                <input type="text" name="subject" placeholder="Subject" className="subject" />
-                <span></span>
-            </div>
-
-            <div className="form-input-group">
-                <textarea type="text" placeholder="Message" className="textarea" name="message"></textarea>
-                <span></span>
-            </div>
-            <div className="message">
-            </div>
-            <button type="submit" className="contact-button submit-button">
-                <div>
-                    <span className="bg"></span>
-                    <span className="base"></span>
-                    <span className="text">Send</span>
-                </div>
-            </button>
-        </div>
-    );
-}
+export default FAQ;
