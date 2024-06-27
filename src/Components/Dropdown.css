@@ -1,0 +1,17 @@
+.dropdown {
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-question {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-answer {
+    padding: 10px;
+    background-color: #eaeaea;
+  }
