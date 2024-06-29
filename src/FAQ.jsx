@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDown from './Dropdown';
+import Dropdown from './Components/Dropdown.jsx';
 import './FAQ.css';
 
 const FAQ = () => {
