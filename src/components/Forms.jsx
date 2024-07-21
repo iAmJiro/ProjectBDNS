@@ -6,15 +6,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+function Example() {
   const [agreed, setAgreed] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_id5wcbo",
+        "service_xkswua9",
         "template_cukpgi4",
         e.target,
         "go5Pq4Cfcv3H503_h"
@@ -22,6 +23,7 @@ export default function Example() {
       .then(
         (result) => {
           console.log(result.text);
+          setFormSubmitted(true); // Set the formSubmitted state to true
         },
         (error) => {
           console.log(error.text);
@@ -208,7 +210,7 @@ export default function Example() {
               htmlFor="flavour"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              Cake flavour
+              Cake Flavour
             </label>
             <div className="mt-2.5">
               <input
@@ -224,18 +226,18 @@ export default function Example() {
               htmlFor="tier"
               className="block text-sm font-semibold leading-6 text-gray-900"
             >
-              Number of tiers
+              Number of Tiers
             </label>
             <div className="mt-2.5">
               <input
-                type="number"
+                type="text"
                 name="tier"
                 id="tier"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-          <div className="col-span-full">
+          <div className="sm:col-span-2">
             <label
               htmlFor="message"
               className="block text-sm font-semibold leading-6 text-gray-900"
@@ -254,54 +256,45 @@ export default function Example() {
           </div>
           <div className="col-span-full">
             <label
-              htmlFor="attachment"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              htmlFor="cover-photo"
+              className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Image attachment
+              Cake photo
             </label>
-            <div className="mt-2.5">
-              <input
-                type="file"
-                name="attachment"
-                id="attachment"
-                className="block w-full text-gray-900"
-              />
+            <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+              <div className="text-center">
+                <svg
+                  className="mx-auto h-12 w-12 text-gray-300"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 2a5 5 0 00-5 5v1.757a.75.75 0 01-.22.53l-4.5 4.5a.75.75 0 001.06 1.06L8 10.561V19a3 3 0 003 3h7a3 3 0 003-3V9a5 5 0 00-5-5h-1a.75.75 0 010-1.5h1a6.5 6.5 0 016.5 6.5v10a4.5 4.5 0 01-4.5 4.5h-7A4.5 4.5 0 017 19v-8.439l-4.72 4.719a2.25 2.25 0 01-3.182-3.182l4.5-4.5a2.25 2.25 0 01.659-1.415V7a6.5 6.5 0 1113 0h-1a.75.75 0 010 1.5h1a5 5 0 00-5-5zm-2.72 8.72a.75.75 0 011.06 0L11 10.439V15a.75.75 0 01-1.5 0v-3.56l-2.22 2.22a.75.75 0 01-1.06-1.06l4-4.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                  <label
+                    htmlFor="attachment"
+                    className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                  >
+                    <span>Upload a file</span>
+                    <input
+                      id="attachment"
+                      name="image"
+                      type="file"
+                      className="sr-only"
+                    />
+                  </label>
+                  <p className="pl-1">or drag and drop</p>
+                </div>
+                <p className="text-xs leading-5 text-gray-600">
+                  PNG, JPG, GIF up to 10MB
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="mt-10 text-center text-">
-          <p>
-            Submitting the form does not book your order. I will reply as soon
-            as possible to let you know if I have availability for the requested
-            date. Allow up to 48 business hours for a reply.
-          </p>
-          <p className="mt-3">
-            Any photos submitted will be used as inspiration as I cannot copy
-            another cake makers work.
-          </p>
-        </div>
-        <div className="relative mt-10 flex items-center">
-          <div className="flex h-6 items-center">
-            <input
-              id="agree"
-              name="agree"
-              type="checkbox"
-              checked={agreed}
-              onChange={() => setAgreed(!agreed)}
-              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-            />
-          </div>
-          <div className="ml-4 text-sm leading-6">
-            <label htmlFor="agree" className="font-medium text-gray-900">
-              By selecting this, you agree to our{" "}
-              <a
-                href="#"
-                className="font-semibold text-indigo-600 hover:text-indigo-500"
-              >
-                privacy&nbsp;policy
-              </a>
-              .
-            </label>
           </div>
         </div>
         <div className="mt-10">
@@ -309,10 +302,13 @@ export default function Example() {
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Submit
+            Request a quote
           </button>
         </div>
       </form>
+      {formSubmitted && // Conditionally render the confirmation message
+        alert("Your form has been successfully submitted!")}
     </div>
   );
 }
+export default Example;
