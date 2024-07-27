@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./components/Home.jsx";
+import Home from "./Components/Home.jsx";
 import "./index.css";
-import Navbar from "./components/Navbar.jsx";
-import AnimatedRoutes from "./components/AnimatedRoutes";
-import Forms from "./components/Forms";
-import Gallery from "./components/Gallery.jsx";
+import Navbar from "./Components/Navbar.jsx";
+import AnimatedRoutes from "./Components/AnimatedRoutes";
+import Forms from "./Components/Forms";
+import Gallery from "./Components/Gallery.jsx";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +13,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Social from "./components/Social.jsx";
+import Social from "./Components/Social.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
