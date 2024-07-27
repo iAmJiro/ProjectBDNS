@@ -1,10 +1,14 @@
 export default function Navbar() {
   return (
     <>
-      <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <nav class="bg-white border-gray-200 bg-violet-200">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between ml-20 mr-16 p-4">
           <div className="flex">
-            <img src="./logo.png" class=" h-20" alt="Flowbite Logo" />
+            <img
+              src="./logo-removebg-preview.png"
+              class=" h-20"
+              alt="Flowbite Logo"
+            />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               Rainbird Cakes
             </span>
@@ -52,7 +56,7 @@ export default function Navbar() {
             class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-cta"
           >
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
               <li>
                 <a
                   href="/ProjectBDNS/"

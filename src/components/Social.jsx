@@ -4,66 +4,74 @@ import { SocialIcon } from "react-social-icons";
 
 export default function Social() {
   return (
-    <div className="relative bg-black pt-3 pb-16 sm:py-12 md:py-0">
+    <div className="relative bg-violet-200 pb-12 pt-4 sm:pb-12 md:py-0">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row items-center md:items-center sm:mb-10 lg:mb-0 md:mb-0 sm:overscroll-none">
         <img
-          className="h-12 w-17 object-contain opacity-0 sm:opacity-100 sm:h-30 sm:w-32 md:order-1 md:mr-10"
-          src="./images/"
-          alt="Logo"
+          className="h-30 w-32 object-contain"
+          src="./cake.png"
+          alt="Image"
         />
-        <div className="text-center text-lg font-semibold leading-8 text-white lg:items-center mb-2 md:ml-44 lg:mt-5 md:order-2">
-          <h2>Here are some of my social media accounts</h2>
-          <div className="justify-center float-start gap-x-6 mt-10 sm:items-center sm:justify-center lg:items-center sm:ml-10">
-            <SocialIcon
-              className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4 md:mr-14"
-              url="www.instagram.com/jiro.bryyyant"
-              href="https://www.instagram.com/jiro.bryyyant/"
+        <div className="text-center text-lg font-semibold leading-8 text-white md:mx-auto lg:ml-48 mt-5">
+          <h2>Follow us on our social media platforms</h2>
+          <div className="flex justify-center items-center gap-x-8 mt-2">
+            <a
+              href="https://www.instagram.com/rainbirdscakes/"
+              target="_blank"
               rel="noopener noreferrer"
-            />
-            <SocialIcon
-              className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4 md:mr-14"
-              url="https://www.facebook.com/bryantjei.cavinta.7/"
-              href="https://www.facebook.com/bryantjei.cavinta.7/"
+              className="transform hover:scale-110 focus:outline-none transition duration-150 ease-in-out"
+            >
+              <img
+                className="ml-auto items-center flex-row col-span-2 max-h-10 w-50% object-contain lg:col-span-1"
+                src="./Instagram_logo.png"
+                alt="Instagram"
+                width={158}
+                height={48}
+              />
+            </a>
+            <div className="flex justify-center items-center flex-col">
+              <img
+                className="h-20 w-none mr-2 object-contain"
+                src="./logo-removebg-preview.png"
+                alt="Logo"
+              />
+              <div className="text-white text-sm mt-2">
+                ©2024 Rainbird Cakes
+              </div>
+            </div>
+            <a
+              href="https://www.facebook.com/groups/1522565807903275/user/100094667072997/"
+              target="_blank"
               rel="noopener noreferrer"
-            />
-            <SocialIcon
-              className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4 md:mr-14"
-              url="https://www.discord.com/"
-              href="https://www.discordapp.com/users/560529551386476550"
-              rel="noopener noreferrer"
-            />
-            <SocialIcon
-              className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4 md:mr-14"
-              url="https://www.github.com/"
-              href="https://github.com/iAmJiro"
-              rel="noopener noreferrer"
-            />
+              className="transform hover:scale-110 focus:outline-none transition duration-150 ease-in-out"
+            >
+              <img
+                className="items-center flex-row col-span-2 max-h-12 w-50% object-contain lg:col-span-1"
+                src="./facebook_logo.png"
+                alt="Facebook"
+                width={158}
+                height={48}
+              />
+            </a>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 bg-black text-white flex justify-around py-4 md:relative md:flex-col md:items-center md:w-50% md:bg-transparent md:text-black md:mr-0 md:ml-auto md:order-3">
+        <div className="absolute bottom-0 left-0 right-0 bg-black text-white flex justify-around py-4 md:relative md:flex-col md:items-center md:w-50% md:bg-transparent md:text-black md:mr-0 md:ml-auto ">
           <Link
-            to="/"
+            to="/ProjectBDNS"
             className="text-white hover:text-gray-300 transition duration-150 ease-in-out mt-2"
           >
             Home
           </Link>
           <Link
-            to="/About"
+            to="/ProjectBDNS/Privacy"
             className="text-white hover:text-gray-300 transition duration-150 ease-in-out mt-2"
           >
-            About
+            Privacy
           </Link>
           <Link
-            to="/Contact"
+            to="/ProjectBDNS/TermsAndCondition"
             className="text-white hover:text-gray-300 transition duration-150 ease-in-out mt-2"
           >
-            Contact
-          </Link>
-          <Link
-            to="/Projects"
-            className="text-white hover:text-gray-300 transition duration-150 ease-in-out mt-2"
-          >
-            Projects
+            T&C
           </Link>
         </div>
       </div>
