@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import emailjs from "emailjs-com";
-
+import Navbar from "./Navbar";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -34,7 +34,10 @@ function Example() {
   };
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div className="isolate bg-white px-6  lg:px-8">
+      <div className="navbarbg bg-violet-200">
+        <Navbar />
+      </div>
       <div
         className=" mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -47,8 +50,9 @@ function Example() {
           }}
         />
       </div>
+
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mt-10">
           Event Cake Order Form
         </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">

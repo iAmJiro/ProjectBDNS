@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import Home from "./Components/Home.jsx";
 import "./index.css";
 import Navbar from "./Components/Navbar.jsx";
-import AnimatedRoutes from "./Components/AnimatedRoutes";
-import Forms from "./Components/Forms";
+import AnimatedRoutes from "./Components/AnimatedRoutes.jsx";
+import Forms from "./Components/Forms.jsx";
 import Gallery from "./Components/Gallery.jsx";
 import {
   BrowserRouter as Router,
@@ -18,7 +18,6 @@ import Social from "./Components/Social.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/ProjectBDNS" element={<Home />} />
         <Route path="/ProjectBDNS/Forms" element={<Forms />} />
