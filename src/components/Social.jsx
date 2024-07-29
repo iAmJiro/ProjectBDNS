@@ -77,7 +77,7 @@ const Social = () => {
             Menu
           </Link>
           <Link
-            to="/testimonials"
+            to="/ProjectBDNS/Testimonials"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Testimonials
