@@ -13,7 +13,7 @@ function Home() {
             <HomeNav />
           </nav>
           <h1 className="landingtext text-white text-center ">
-            Where aesthetic is flavour
+            Beauty meets flavour
           </h1>
           <div className="cakediv">
             <img className="cakepicture" src="cakepicture.png" alt="" />
@@ -33,6 +33,7 @@ function Home() {
       <div className="homepart4">
         <HomeAbout />
       </div>
+      <div className="homepart5"></div>
     </div>
   );
 }

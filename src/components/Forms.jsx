@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import emailjs from "emailjs-com";
 import Navbar from "./Navbar";
+import HomeNav from "./HomeNav";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -12,7 +13,7 @@ function Example() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    // email used is bryantcavinta24@gmail.com
     emailjs
       .sendForm(
         "service_xkswua9",
@@ -36,7 +37,9 @@ function Example() {
   return (
     <div className="isolate bg-white px-6  lg:px-8">
       <div className="navbarbg bg-violet-200">
-        <Navbar />
+        <nav className="navcss">
+          <HomeNav />
+        </nav>
       </div>
       <div
         className=" mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"

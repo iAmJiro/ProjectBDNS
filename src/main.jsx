@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS">
       <Routes>
-        <Route path="/ProjectBDNS" element={<Home />} />
+        <Route path="/ProjectBDNS/" element={<Home />} />
         <Route path="/ProjectBDNS/Forms" element={<Forms />} />
         <Route path="/ProjectBDNS/Gallery" element={<Gallery />} />
         <Route path="/ProjectBDNS/Testimonials" element={<Testimonials />} />

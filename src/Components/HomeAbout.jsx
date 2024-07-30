@@ -16,7 +16,7 @@ function HomeAbout() {
               />
               <div className="mt-8 lg:mb-0 mb-8">
                 <h1 className="f-m-m text-2xl font-semibold leading-7">
-                  Beautiful Italy, Travel Blog
+                  Here is my kitchen
                 </h1>
                 <p className="text-base f-m-m leading-loose mt-2">
                   Lorem Ipsum is simply dummy text of the printing and
@@ -41,7 +41,7 @@ function HomeAbout() {
                 />
                 <div className="lg:ml-6">
                   <h1 className="f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">
-                    A Broken Backpack
+                    I'm Emma Lee-Rainbrid
                   </h1>
                   <p className="text-base f-m-m leading-loose mt-2">
                     Lorem Ipsum is simply dummy text of the printing and
@@ -65,7 +65,7 @@ function HomeAbout() {
                 />
                 <div className="lg:ml-6">
                   <h1 className="f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">
-                    My life’s a Movie
+                    I Love Baking!
                   </h1>
                   <p className="text-base f-m-m leading-loose mt-2">
                     Lorem Ipsum is simply dummy text of the printing and
