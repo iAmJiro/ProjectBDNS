@@ -8,12 +8,18 @@ export default function Navbar() {
         setIsOpen(!isOpen);
     };
 
+    // Colour of hover text to match logo #ebcaff
+
     return (
         <>
             <nav className="bg-white border-gray-200 dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between ml-20 mr-16 p-4">
                     <div className="flex">
-                        <img src="./logo.png" className="h-20" alt="Flowbite Logo" />
+                    <img
+                        src="./logo-removebg-preview.png"
+                        className="h-20"
+                        alt="Rainbird Cakes Logo"
+                        />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Rainbird Cakes</span>
                     </div>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -40,19 +46,25 @@ export default function Navbar() {
                     <div className={`items-center justify-between ${isOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`} id="navbar-cta">
                         <ul className="flex flex-col font-medium p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
-                                <Link to="ProjectBDNS/" className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500" aria-current="page">Home</Link>
+                                <Link to="/" className="block py-2 px-3 md:p-0 text-white bg-[#ebcaff] rounded md:bg-transparent md:text-[#ebcaff] md:dark:text-[#ebcaff]" aria-current="page">Home</Link>
                             </li>
                             <li>
-                                <Link to="ProjectBDNS/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
+                                <Link to="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
                             </li>
                             <li>
-                                <Link to="ProjectBDNS/services" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</Link>
+                                <Link to="/forms" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Forms</Link>
                             </li>
                             <li>
-                                <Link to="ProjectBDNS/contact" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
+                                <Link to="/gallery" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Gallery</Link>
                             </li>
                             <li>
-                                <Link to="ProjectBDNS/faq" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</Link>
+                                <Link to="/menu" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Menu</Link>
+                            </li>
+                            <li>
+                                <Link to="/contact" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
+                            </li>
+                            <li>
+                                <Link to="/faq" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-[#ebcaff] md:hover:bg-transparent md:hover:text-[#ebcaff] md:dark:hover:text-[#ebcaff] dark:text-white dark:hover:bg-[#ebcaff] dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</Link>
                             </li>
                         </ul>
                     </div>
