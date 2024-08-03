@@ -1,43 +1,41 @@
-
-
-
+import React from "react";
+import "../index.css";
+import HomeNav from "./HomeNav";
+import GalleryHome from "./GalleryHome";
+import OrderInstructions from "./OrderInstructions";
+import HomeAbout from "./HomeAbout";
 function Home() {
-
-
   return (
-    <>
-    <div className="flex justify-center">
-      <label
-        class="cursor-pointer relative h-[3em] w-[6em] rounded-full bg-[hsl(0,0%,7%)] shadow-[0px_2px_4px_0px_rgb(18,18,18,0.25),0px_4px_8px_0px_rgb(18,18,18,0.35)]"
-      >
-        <span
-          class="absolute inset-[0.1em] rounded-full border-[1px] border-[hsl(0,0%,25%)]"
-        ></span>
-        <div
-          class="absolute left-[0.5em] top-1/2 flex h-[2em] w-[2em] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[inset_0px_2px_2px_0px_hsl(0,0%,85%)]"
-        >
-          <div
-            class="h-[1.5em] w-[1.5em] rounded-full bg-[hsl(0,0%,7%)] shadow-[0px_2px_2px_0px_hsl(0,0%,85%)]"
-          ></div>
-        </div>
-        <div
-          class="absolute right-[0.5em] top-1/2 h-[0.25em] w-[1.5em] -translate-y-1/2 rounded-full bg-[hsl(0,0%,50%)] shadow-[inset_0px_2px_1px_0px_hsl(0,0%,40%)]"
-        ></div>
-        <input class="peer h-[1em] w-[1em] opacity-0" id="" name="" type="checkbox" />
-        <span
-          class="absolute left-[0.25em] top-1/2 flex h-[2.5em] w-[2.5em] -translate-y-1/2 items-center justify-center rounded-full bg-[rgb(26,26,26)] shadow-[inset_4px_4px_4px_0px_rgba(64,64,64,0.25),inset_-4px_-4px_4px_0px_rgba(16,16,16,0.5)] duration-300 peer-checked:left-[calc(100%-2.75em)]"
-        >
-          <span class="relative h-full w-full rounded-full">
-            <span
-              class="absolute inset-[0.1em] rounded-full border-[1px] border-[hsl(0,0%,50%)]"
-            ></span>
-          </span>
-        </span>
-      </label>
-
+    <div className="motherdivhome">
+      <div className="grid-container">
+        <header className="headercss">
+          <nav className="navcss">
+            <HomeNav />
+          </nav>
+          <h1 className="landingtext text-white text-center ">
+            Beauty meets flavour
+          </h1>
+          <div className="cakediv">
+            <img className="cakepicture" src="cakepicture.png" alt="" />
+          </div>
+          <div className="cupcakediv">
+            <img className="cupcakepicture" src="cupcakes.png" alt="" />
+          </div>
+          <div className="cookiediv">
+            <img className="cookiepicture" src="cakepicture2.png" alt="" />
+          </div>
+        </header>
       </div>
-    </>
-  )
+      <GalleryHome />
+      <div className="homepart3">
+        <OrderInstructions />
+      </div>
+      <div className="homepart4">
+        <HomeAbout />
+      </div>
+      <div className="homepart5"></div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

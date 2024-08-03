@@ -1,24 +1,34 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ReactDOM from 'react-dom/client'
-import Home from './Components/Home.jsx'
-import FAQ from './FAQ.jsx'
-import './index.css'
-import Navbar from './Components/Navbar.jsx'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Home from "./Components/Home.jsx";
+import "./index.css";
+import Navbar from "./Components/Navbar.jsx";
+import AnimatedRoutes from "./Components/AnimatedRoutes.jsx";
+import Forms from "./Components/Forms.jsx";
+import Gallery from "./Components/Gallery.jsx";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Social from "./Components/Social.jsx";
+import Testimonials from "./Components/Testimonials.jsx";
+import About from "./Components/About.jsx";
+import FAQ from "./FAQ.jsx";
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router>
-      <Navbar/>
+    <Router basename="/ProjectBDNS">
       <Routes>
-        <Route path="ProjectBDNS/" element={<Home />} />
-        {/* Uncomment when the pages exist */}
-        {/* <Route path="ProjectBDNS/about" element={<About />} /> 
-        <Route path="ProjectBDNS/services" element={<Services />} />
-        <Route path="ProjectBDNS/contact" element={<Contact />} /> */}
-        <Route path="ProjectBDNS/faq" element={<FAQ />} />
+        <Route path="/ProjectBDNS/" element={<Home />} />
+        <Route path="/ProjectBDNS/Forms" element={<Forms />} />
+        <Route path="/ProjectBDNS/Gallery" element={<Gallery />} />
+        <Route path="/ProjectBDNS/Testimonials" element={<Testimonials />} />
+        <Route path="/ProjectBDNS/About" element={<About />} />
+        <Route path="/ProjectBDNS/FAQ" element={<FAQ />} />
       </Routes>
-      <Home />
+      <Social />
     </Router>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
