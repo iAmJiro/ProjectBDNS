@@ -4,18 +4,18 @@ import './FAQ.css';
 
 const FAQ = () => {
   const faqData = [
-    { question: 'Question 1', answer: 'Answer 1' },
-    { question: 'Question 2', answer: 'Answer 2' },
-    { question: 'Question 3', answer: 'Answer 3' },
-    { question: 'Question 4', answer: 'Answer 4' },
-    { question: 'Question 5', answer: 'Answer 5' },
-    { question: 'Question 6', answer: 'Answer 6' },
-    { question: 'Question 7', answer: 'Answer 7' },
-    { question: 'Question 8', answer: 'Answer 8' },
+    { question: 'Do you deliver cakes?', answer: 'Currently, we offer pick-up only for all orders. Our cakes can be picked up from our Wairarapa location.' },
+    { question: 'Can I customize the flavor of my cake?', answer: 'Yes, you can customize the flavor of your cake. However, we only offer flavors that are available on our menu.' },
+    { question: 'How long does it take to complete an order?', answer: 'It usually takes 2-3 weeks to complete a custom cake order. We recommend placing your order well in advance to ensure availability.' },
+    { question: 'Can I choose my own cake design?', answer: 'Yes, you can choose your own cake design. We work with you to create a cake that fits your vision.' },
+    { question: 'How do I place an order?', answer: "You can place an order by contacting us through our website or by giving us a call. We'll guide you through the process and help you with all the details." },
+    { question: 'What are your payment options?', answer: 'We accept various payment methods including credit cards and bank transfers. Payment details will be provided upon order confirmation.' },
+    { question: 'Do you offer cake tastings?', answer: 'Yes, we offer cake tastings by appointment. Please contact us to schedule a tasting session to try out our available flavors.' },
+    { question: 'Can I make changes to my order after it has been placed?', answer: 'Changes to orders can be made within 48 hours of placing the order. After that, we may not be able to accommodate changes due to the preparation process.' },
   ];
 
   return (
-    <div className="faq-container">
+    <div className="faq-container" id="faq">
       <h1>How can we help you?</h1>
       <div className="faq-grid">
         {faqData.map((item, index) => (
