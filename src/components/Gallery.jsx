@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import HomeNav from "./HomeNav";
 import Home from "./Home";
 const Gallery = ({
   cakeImages = [],
