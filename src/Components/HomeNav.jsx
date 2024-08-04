@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function HomeNav() {
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar bg">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto ">
           {/* Logo and text */}
           <div className="flex items-center">
@@ -21,38 +21,42 @@ function HomeNav() {
           {/* Navigation links */}
           <div className="hidden md:flex md:flex-1 md:justify-center space-x-8">
             <Link
-              to="/ProjectBDNS"
+              to="/"
               className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               Home
             </Link>
             <Link
-              to="/ProjectBDNS/Forms"
+              to="/about"
+              className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            >
+              About
+            </Link>
+            <Link
+              to="/Forms"
               className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               Orders
             </Link>
             <Link
-              to="/ProjectBDNS/Gallery"
+              to="/Gallery"
               className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               Gallery
             </Link>
             <Link
-              to="/ProjectBDNS/Menu"
+              to="/Menu"
               className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               Menu
             </Link>
             <Link
-              to="/ProjectBDNS/FAQ"
+              to="/FAQ"
               className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               FAQ
             </Link>
           </div>
-
-          {/* Shop now button */}
         </div>
 
         {/* Mobile navigation */}
@@ -63,7 +67,7 @@ function HomeNav() {
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
             <li>
               <Link
-                to="/ProjectBDNS"
+                to="/ProjectBDNS/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 Home

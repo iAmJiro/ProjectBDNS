@@ -34,7 +34,9 @@ function Example() {
   };
 
   return (
-    <div className="isolate bg-white px-6  lg:px-8">
+    <div className="isolate bg-white ">
+      <Navbar />
+
       <div
         className=" mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"

@@ -57,34 +57,34 @@ const Social = () => {
         </div>
         <div className="sm:ml-0 ml-8 flex-col flex">
           <h2 className="text-base font-semibold leading-4 text-gray-800">
-            Company
+            What's here?{" "}
           </h2>
           <Link
-            to="/ProjectBDNS"
+            to="/"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Home
           </Link>
           <Link
-            to="/ProjectBDNS/Forms"
+            to="/Forms"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Order Here!
           </Link>
           <Link
-            to="/ProjectBDNS/Gallery"
+            to="/Gallery"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Gallery
           </Link>
           <Link
-            to="/ProjectBDNS/Menu"
+            to="/Menu"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Menu
           </Link>
           <Link
-            to="/ProjectBDNS/Testimonials"
+            to="/Testimonials"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Testimonials

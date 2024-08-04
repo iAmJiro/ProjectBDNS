@@ -19,8 +19,7 @@ import About from "./Components/About.jsx";
 import FAQ from "./Components/FAQ.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router basename="/ProjectBDNS">
-      <Navbar />
+    <Router basename="/ProjectBDNS/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Forms" element={<Forms />} />
