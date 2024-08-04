@@ -1,6 +1,5 @@
 import React from "react";
 import "../index.css";
-import HomeNav from "./HomeNav";
 import GalleryHome from "./GalleryHome";
 import OrderInstructions from "./OrderInstructions";
 import HomeAbout from "./HomeAbout";
@@ -9,9 +8,6 @@ function Home() {
     <div className="motherdivhome">
       <div className="grid-container">
         <header className="headercss">
-          <nav className="navcss">
-            <HomeNav />
-          </nav>
           <h1 className="landingtext text-white text-center ">
             Beauty meets flavour
           </h1>

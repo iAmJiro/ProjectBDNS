@@ -16,15 +16,19 @@ import { AnimatePresence } from "framer-motion";
 import Social from "./Components/Social.jsx";
 import Testimonials from "./Components/Testimonials.jsx";
 import About from "./Components/About.jsx";
+import FAQ from "./Components/FAQ.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS">
+      <Navbar />
       <Routes>
-        <Route path="/ProjectBDNS/" element={<Home />} />
-        <Route path="/ProjectBDNS/Forms" element={<Forms />} />
-        <Route path="/ProjectBDNS/Gallery" element={<Gallery />} />
-        <Route path="/ProjectBDNS/Testimonials" element={<Testimonials />} />
-        <Route path="/ProjectBDNS/About" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Forms" element={<Forms />} />
+        <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/Testimonials" element={<Testimonials />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        {/* <Route path="/Contact" element={<Contact />} /> */}
       </Routes>
       <Social />
     </Router>
