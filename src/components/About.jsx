@@ -189,7 +189,7 @@ export default function About() {
           </div>
           <div className="py-12 xl:w-1/2 lg:w-1/3 sm:w-1/2">
             <img
-              src="https://i.ibb.co/7SmJNvH/about-image.png"
+              src="../public/emma.jpg"
               alt="image ow a woman studying"
               className="h-full rounded-md object-cover object-center md:block hidden"
             />
