@@ -8,6 +8,8 @@ const Gallery = ({
 }) => {
   return (
     <div>
+      <Navbar />
+
       <div className="text-center p-5">
         <h1 className="text-2xl font-bold mt-2">Gallery</h1>
         <p className="text-lg mt-1">Lorem ipsum dolor sit amet</p>

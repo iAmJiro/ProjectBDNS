@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 function Testimonials() {
   return (
     <div className="motherdiv">
-      <Navbar />
       <div className="testimonials1">
         <div>
           <div className="lg:px-20 md:px-6 px-4 py-12">
