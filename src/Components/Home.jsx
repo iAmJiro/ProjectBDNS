@@ -1,5 +1,6 @@
 import React from "react";
 import "../index.css";
+import HomeNav from "./HomeNav";
 import GalleryHome from "./GalleryHome";
 import OrderInstructions from "./OrderInstructions";
 import HomeAbout from "./HomeAbout";
