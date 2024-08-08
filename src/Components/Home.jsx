@@ -4,7 +4,7 @@ import HomeNav from "./HomeNav";
 import GalleryHome from "./GalleryHome";
 import OrderInstructions from "./OrderInstructions";
 import HomeAbout from "./HomeAbout";
-import HomeNav from "./HomeNav";
+
 function Home() {
   return (
     <div className="motherdivhome">
