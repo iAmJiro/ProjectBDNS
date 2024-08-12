@@ -17,6 +17,8 @@ import Social from "./Components/Social.jsx";
 import Testimonials from "./Components/Testimonials.jsx";
 import About from "./Components/About.jsx";
 import FAQ from "./Components/FAQ.jsx";
+import HomeNav from "./Components/HomeNav.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS/">

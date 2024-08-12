@@ -50,6 +50,7 @@
     "landingtext landingtext landingtext"
     "cakediv cupcakediv cookiediv";
 }
+
 .landingtext {
   grid-area: landingtext;
   -webkit-text-stroke-color: black;
