@@ -1,9 +1,25 @@
 import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 function OrderInstructions() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="motherdivorderinstructions">
-      <div className="mx-auto container flex justify-center items-center py-12 px-4 sm:px-6 2xl:px-0">
+      <motion.div
+        className="mx-auto container flex justify-center items-center py-12 px-4 sm:px-6 2xl:px-0"
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={textVariants}
+      >
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0">
           <div className="w-80 sm:w-auto flex flex-col justify-start items-start">
             <div>
@@ -15,12 +31,15 @@ function OrderInstructions() {
               <p className="text-base leading-6 text-gray-600">
                 Click here to start ordering! Fill out the form with all the
                 information you would want me to know to create the perfect cake
-                for the perfect event
+                for the perfect event.
               </p>
             </div>
             <div className="mt-16 w-full">
-              <a href="/ProjectBDNS/Forms" className="">
-                <button className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700">
+              <a href="/ProjectBDNS/Forms">
+                <motion.button
+                  className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700"
+                  whileHover={{ scale: 1.05 }}
+                >
                   <p className="text-xl font-medium leading-5">
                     Click to order
                   </p>
@@ -53,12 +72,12 @@ function OrderInstructions() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </button>
+                </motion.button>
               </a>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row jusitfy-center items-center sm:space-x-5 xl:space-x-8 space-y-4 sm:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-5 xl:space-x-8 space-y-4 sm:space-y-0 sm:space-y-5 lg:space-y-5 xl:space-y-8">
             <div>
               <img
                 className="hidden lg:block"
@@ -99,8 +118,9 @@ function OrderInstructions() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
+
 export default OrderInstructions;
