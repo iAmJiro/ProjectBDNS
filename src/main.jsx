@@ -18,6 +18,8 @@ import Testimonials from "./Components/Testimonials.jsx";
 import About from "./Components/About.jsx";
 import FAQ from "./Components/FAQ.jsx";
 import HomeNav from "./Components/HomeNav.jsx";
+import SignIn from "./Admin/SignIn.jsx";
+import ImageList from "./Admin/Store/ImageList.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -25,11 +27,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Forms" element={<Forms />} />
-        <Route path="/Gallery" element={<Gallery />} />
+        {/* <Route path="/Gallery" element={<Gallery />} /> */}
         <Route path="/Testimonials" element={<Testimonials />} />
         <Route path="/About" element={<About />} />
         <Route path="/FAQ" element={<FAQ />} />
         {/* <Route path="/Contact" element={<Contact />} /> */}
+        <Route path="/SignIn" element = {<SignIn/>}/>
+        <Route path ="/Gallery" element ={<ImageList/>}/>
       </Routes>
       <Social />
     </Router>

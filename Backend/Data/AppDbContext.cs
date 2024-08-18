@@ -61,6 +61,9 @@ namespace Backend.Models
                  Name = "Cookie",
              }
             );
+             modelBuilder.Entity<Image>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
 
             modelBuilder.Entity<Image>().HasData(
                 new Image{
@@ -68,18 +71,24 @@ namespace Backend.Models
                     ImageId = 1,
                     Src = "",
                     Alt = "",
+                    Name = "",
+                    Price = 0m,
                 },
                 new Image{
                     CategoryId = 2,
                     ImageId = 2,
                     Src = "",
                     Alt = "",
+                    Name = "",
+                    Price = 0m,
                 },
                 new Image{
                     CategoryId = 3,
                     ImageId = 3,
                     Src = "",
                     Alt = "",
+                    Name = "",
+                    Price = 0m,
                 }
             );
 

@@ -11,6 +11,8 @@ namespace Backend.Dtos
     {
         public string Src { get; set; } = default!;
         public string Alt { get; set; } = default!;
+        public string Name { get; set; } = default!;
+        public decimal Price { get; set; } = default!;
 
         public int CategoryId { get; set; }
 
@@ -18,6 +20,8 @@ namespace Backend.Dtos
             return new Image{
                 Src = Src,
                 Alt = Alt,
+                Name = Name,
+                Price = Price,
                 CategoryId = CategoryId,
             };
         }
