@@ -52,12 +52,7 @@ export default function Navbar() {
             >
               Gallery
             </Link>
-            <Link
-              to="/Menu"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-            >
-              Menu
-            </Link>
+
             <Link
               to="/FAQ"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"

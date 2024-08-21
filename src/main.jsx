@@ -32,8 +32,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/About" element={<About />} />
         <Route path="/FAQ" element={<FAQ />} />
         {/* <Route path="/Contact" element={<Contact />} /> */}
-        <Route path="/SignIn" element = {<SignIn/>}/>
-        <Route path ="/Gallery" element ={<ImageList/>}/>
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/Gallery" element={<ImageList />} />
       </Routes>
       <Social />
     </Router>

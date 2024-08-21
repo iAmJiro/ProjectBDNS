@@ -109,6 +109,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="Emma@email.com"
                 type="email"
                 name="email"
                 id="email"
@@ -126,6 +127,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="0220202123"
                 type="tel"
                 name="contact"
                 id="contact"
@@ -142,6 +144,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="123 Cake Street"
                 type="text"
                 name="address"
                 id="address"
@@ -201,6 +204,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="Red Everywhere!"
                 type="text"
                 name="eventth"
                 id="eventth"
@@ -217,6 +221,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="Red Velvet"
                 type="text"
                 name="flavour"
                 id="flavour"
@@ -233,6 +238,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <input
+                placeholder="3"
                 type="text"
                 name="tier"
                 id="tier"
@@ -249,6 +255,7 @@ function Example() {
             </label>
             <div className="mt-2.5">
               <textarea
+                placeholder="I want a dinosaur at the top!"
                 name="message"
                 id="message"
                 rows={4}

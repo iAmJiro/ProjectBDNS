@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../index.css";
 function HomeNav() {
   return (
     <>
@@ -10,10 +10,10 @@ function HomeNav() {
           <div className="flex items-center">
             <img
               src="./logo-removebg-preview.png"
-              className="h-20"
+              className="websitelogo h-20"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white ml-2">
+            <span className="websitename self-center text-2xl font-semibold whitespace-nowrap dark:text-white ml-2">
               Rainbird Cakes
             </span>
           </div>
@@ -44,12 +44,7 @@ function HomeNav() {
             >
               Gallery
             </Link>
-            <Link
-              to="/Menu"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-            >
-              Menu
-            </Link>
+
             <Link
               to="/FAQ"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"

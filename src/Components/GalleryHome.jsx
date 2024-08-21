@@ -27,7 +27,7 @@ function GalleryHome() {
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      <div className="homegallery py-10">
+      <div className="homegallery py-10 px-5">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="grid gap-4">
             <motion.div variants={imageVariants}>

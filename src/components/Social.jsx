@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 import { useState } from "react";
+import { SocialIcon } from "react-social-icons";
 
 const Social = () => {
   const [email, setEmail] = useState("");
@@ -47,11 +48,21 @@ const Social = () => {
             All rights reserved
           </p>
           <div className="flex items-center gap-x-4 mt-12">
-            <div className="opacity-50 w-8 h-8 flex-shrink-0 bg-gray-800 cursor-pointer hover:bg-gray-700 rounded-full flex items-center justify-center">
-              {/* SVG for social media icon */}
+            <div className=" w-8 h-8 flex-shrink-0">
+              <SocialIcon
+                className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mr-5"
+                url="https://www.instagram.com/rainbirdscakes/"
+                href="https://www.instagram.com/rainbirdscakes/"
+                rel="noopener noreferrer"
+              />
             </div>
-            <div className="opacity-50 w-8 h-8 flex-shrink-0 bg-gray-800 cursor-pointer hover:bg-gray-700 rounded-full flex items-center justify-center">
-              {/* SVG for social media icon */}
+            <div className=" w-8 h-8 flex-shrink-0 ">
+              <SocialIcon
+                className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4"
+                url="https://www.facebook.com/emmalee.rainbird"
+                href="https://www.facebook.com/emmalee.rainbird"
+                rel="noopener noreferrer"
+              />
             </div>
           </div>
         </div>
