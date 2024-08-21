@@ -7,7 +7,12 @@ const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 function HomeAbout() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -87,6 +92,7 @@ function HomeAbout() {
       </div>
       <div className="flex items-center justify-center my-16 w-full">
         <Link
+          onClick={scrollToTop}
           to="/About"
           className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
         >

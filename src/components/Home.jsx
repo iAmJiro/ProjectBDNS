@@ -16,6 +16,13 @@ const imageVariants = {
   visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
 };
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 function Home() {
   return (
     <motion.div className="motherdivhome" initial="hidden" animate="visible">

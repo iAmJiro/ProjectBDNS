@@ -1,12 +1,17 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
+import { Link } from "react-router-dom";
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
-
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 function OrderInstructions() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -35,7 +40,7 @@ function OrderInstructions() {
               </p>
             </div>
             <div className="mt-16 w-full">
-              <a href="/ProjectBDNS/Forms">
+              <Link onClick={scrollToTop} to="/Forms">
                 <motion.button
                   className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700"
                   whileHover={{ scale: 1.05 }}
@@ -73,7 +78,7 @@ function OrderInstructions() {
                     />
                   </svg>
                 </motion.button>
-              </a>
+              </Link>
             </div>
           </div>
 
