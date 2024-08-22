@@ -84,7 +84,6 @@ function HomeAbout() {
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </p>
-                <div className="mt-4"></div>
               </div>
             </div>
           </div>
@@ -94,10 +93,10 @@ function HomeAbout() {
         <Link
           onClick={scrollToTop}
           to="/About"
-          className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+          className="block py-2 px-3 text-white rounded  dark:text-white "
         >
           <motion.button
-            className="hover:bg-gray-200 border border-indigo-700 border-2 lg:text-2xl md:text-lg text-sm rounded f-m-m font-semibold text-indigo-700 focus:outline-none lg:px-12 px-6 lg:py-6 py-3 xl:leading-4"
+            className=" border-indigo-700 border-2 lg:text-2xl md:text-lg text-sm rounded f-m-m font-semibold text-indigo-700 focus:outline-none lg:px-12 px-6 lg:py-6 py-3 xl:leading-4"
             whileHover={{ scale: 1.05 }}
           >
             Browse More
