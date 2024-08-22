@@ -1,6 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 function Testimonials() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="motherdiv">
       <div className="testimonials1">

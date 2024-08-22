@@ -5,6 +5,12 @@ import { useState } from "react";
 import { SocialIcon } from "react-social-icons";
 
 const Social = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
   const sendEmail = (e) => {
@@ -71,30 +77,29 @@ const Social = () => {
             What's here?{" "}
           </h2>
           <Link
+            onClick={scrollToTop}
             to="/"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Home
           </Link>
           <Link
+            onClick={scrollToTop}
             to="/Forms"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Order Here!
           </Link>
           <Link
+            onClick={scrollToTop}
             to="/Gallery"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
             Gallery
           </Link>
+
           <Link
-            to="/Menu"
-            className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
-          >
-            Menu
-          </Link>
-          <Link
+            onClick={scrollToTop}
             to="/Testimonials"
             className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer"
           >
