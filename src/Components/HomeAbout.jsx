@@ -32,7 +32,7 @@ function HomeAbout() {
         <div className="w-full lg:flex">
           <div className="lg:w-1/2">
             <img
-              src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog1.png"
+              src="423583268_18382431028078691_1448467962359117041_n.jpg"
               className="w-full"
               alt="Kitchen"
             />
@@ -51,7 +51,7 @@ function HomeAbout() {
           <div className="lg:w-1/2 lg:ml-8">
             <div className="lg:flex items-start mb-8">
               <img
-                src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog2.png"
+                src="359810853_107861709046065_8427786647157348048_n (1).jpg"
                 className="w-full"
                 alt="Emma Lee-Rainbrid"
               />
@@ -70,7 +70,7 @@ function HomeAbout() {
             </div>
             <div className="lg:flex items-start mb-8">
               <img
-                src="https://cdn.tuk.dev/assets/components/111220/blg-17/blog3.png"
+                src="366211000_125649100600659_435747763610050943_n (1).jpg"
                 className="w-full"
                 alt="Baking"
               />
