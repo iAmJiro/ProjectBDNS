@@ -13,6 +13,7 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
+
 function HomeAbout() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -40,10 +41,10 @@ function HomeAbout() {
               <h1 className="f-m-m text-2xl font-semibold leading-7">
                 Here is my kitchen
               </h1>
-              <p className="text-base f-m-m leading-loose mt-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. It has survived not only five centuries. Lorem Ipsum
-                is simply dummy text of the printing and typesetting industry.
+              <p className="text-base f-m-m leading-loose mt-2 text-justify">
+                Hey, I’m Emma, the gal behind Rainbird’s Cakes. I’m 25, mum of 2
+                boys, fiancé to Ben, baker by trade with over 5 years in the
+                industry. Lover of all things food, and now caker from home.
               </p>
               <div className="mt-6"></div>
             </div>
@@ -59,11 +60,13 @@ function HomeAbout() {
                 <h1 className="f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">
                   I'm Emma Lee-Rainbrid
                 </h1>
-                <p className="text-base f-m-m leading-loose mt-2">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. It has survived not only five centuries.
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                <p className="text-base f-m-m leading-loose mt-2 text-justify">
+                Growing up in the heart of Masterton, New Zealand, I’ve always been surrounded by the vibrant 
+                energy of family and community. As a mother of two amazing boys, I’ve learned to appreciate 
+                the simple joys in life, from our outdoor adventures to our shared love of sweet treats. 
+                When I’m not busy baking, I’m exploring new flavors, discovering the beauty of nature, or 
+                simply enjoying a quiet moment with a cup of tea. My journey with Rainbird’s Cakes is more 
+                than just a business; it’s a way for me to share a piece of my heart with each cake I create.
                 </p>
                 <div className="mt-4"></div>
               </div>
@@ -78,11 +81,12 @@ function HomeAbout() {
                 <h1 className="f-m-m text-2xl font-semibold leading-7 lg:mt-0 mt-8">
                   I Love Baking!
                 </h1>
-                <p className="text-base f-m-m leading-loose mt-2">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. It has survived not only five centuries.
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                <p className="text-base f-m-m leading-loose mt-2 text-justify">
+                  Baking has always been something that I’ve enjoyed ever since
+                  a young age! I’ve got over 6 years experience in the bakery
+                  industry where I currently still specialise in making
+                  pastries, cakes & chocolate. Rainbird’s cakes is my
+                  progression of that passion & I love where it’s taking me!
                 </p>
               </div>
             </div>
@@ -93,7 +97,7 @@ function HomeAbout() {
         <Link
           onClick={scrollToTop}
           to="/About"
-          className="block py-2 px-3 text-white rounded  dark:text-white "
+          className="block py-2 px-3 text-white rounded dark:text-white "
         >
           <motion.button
             className=" border-indigo-700 border-2 lg:text-2xl md:text-lg text-sm rounded f-m-m font-semibold text-indigo-700 focus:outline-none lg:px-12 px-6 lg:py-6 py-3 xl:leading-4"
