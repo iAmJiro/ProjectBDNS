@@ -17,7 +17,7 @@ function OrderInstructions() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="motherdivorderinstructions">
+    <div className="motherdivorderinstructions bg-slate-200">
       <motion.div
         className="mx-auto container flex justify-center items-center py-12 px-4 sm:px-6 2xl:px-0"
         ref={ref}

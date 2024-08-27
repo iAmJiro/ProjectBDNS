@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar.jsx";
+import { motion, AnimatePresence } from "framer-motion";
+
 const FAQ = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -9,11 +11,16 @@ const FAQ = () => {
   const [open6, setOpen6] = useState(false);
   const [open7, setOpen7] = useState(false);
 
+  const questionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div>
       <Navbar />
       <div
-        className=" mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        className="mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
       >
         <div
@@ -30,8 +37,19 @@ const FAQ = () => {
         </h1>
         <div className="lg:w-8/12 w-full mx-auto">
           {/* <!-- Question 1 --> */}
-          <hr className="w-full lg:mt-10 md:mt-12 md:mb-8 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 md:mt-12 md:mb-8 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -67,20 +85,39 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                Currently, we offer pick-up only for all orders. Our cakes can
-                be picked up from our Wairarapa location.
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    Currently, we offer pick-up only for all orders. Our cakes
+                    can be picked up from our Wairarapa location.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 2 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -116,20 +153,39 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open2 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                Yes, you can customize the flavor of your cake. However, we only
-                offer flavors that are available on our menu.
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open2 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    Yes, you can customize the flavor of your cake. However, we
+                    only offer flavors that are available on our menu.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 3 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -165,21 +221,40 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open3 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                It usually takes 2-3 weeks to complete a custom cake order. We
-                recommend placing your order well in advance to ensure
-                availability.
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open3 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    It usually takes 2-3 weeks to complete a custom cake order.
+                    We recommend placing your order well in advance to ensure
+                    availability.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 4 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -215,20 +290,39 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open4 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                Yes, you can choose your own cake design. We work with you to
-                create a cake that fits your vision.
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open4 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    Yes, you can choose your own cake design. We work with you
+                    to create a cake that fits your vision.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 5 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -264,21 +358,40 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open5 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                You can place an order by contacting us through our website or
-                by giving us a call. We'll guide you through the process and
-                help you with all the details.
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open5 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    You can place an order by contacting us through our website
+                    or by giving us a call. We'll guide you through the process
+                    and help you with all the details.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 6 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -314,20 +427,40 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open6 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                Yes, we offer cake tastings by appointment. Please contact us to
-                schedule a tasting session to try out our available flavors
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open6 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    Yes, we offer cake tastings by appointment. Please contact
+                    us to schedule a tasting session to try out our available
+                    flavors.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
 
           {/* <!-- Question 7 --> */}
-          <hr className="w-full lg:mt-10 my-8" />
-          <div className="w-full md:px-6">
+          <motion.hr
+            className="w-full lg:mt-10 my-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          />
+          <motion.div
+            className="w-full md:px-6"
+            variants={questionVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
             <div
               id="mainHeading"
               className="flex justify-between items-center w-full"
@@ -363,17 +496,25 @@ const FAQ = () => {
                 </svg>
               </button>
             </div>
-            <div
-              id="menu"
-              className={"mt-6 w-full " + (open7 ? "block" : "hidden")}
-            >
-              <p className="text-base leading-6 text-gray-600 font-normal">
-                Changes to orders can be made within 48 hours of placing the
-                order. After that, we may not be able to accommodate changes due
-                to the preparation process
-              </p>
-            </div>
-          </div>
+            <AnimatePresence>
+              {open7 && (
+                <motion.div
+                  id="menu"
+                  className="mt-6 w-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className="text-base leading-6 text-gray-600 font-normal">
+                    Changes to orders can be made within 48 hours of placing the
+                    order. After that, we may not be able to accommodate changes
+                    due to the preparation process.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
     </div>

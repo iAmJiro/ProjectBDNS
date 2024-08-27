@@ -47,12 +47,13 @@ export default function About() {
               variants={contentVariants}
             >
               <h1 className="text-center text-3xl md:text-5xl font-bold text-gray-800">
-                My name is Emma
+                Who am I?
               </h1>
               <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
-                I’m Emma 26 years old, half Filipino, Mum of two awesome boys &
-                Fiancé to Ben. I’m born and raised here in Masterton New Zealand
-                and here is where we are also raising our family.
+                I’m Emma-Lee Rainbird. 26 years old, half Filipino, Mum of two
+                awesome boys & Fiancé to Ben. I was born and raised here in
+                Masterton New Zealand and here is where we are also raising our
+                family.
               </p>
             </motion.div>
 
@@ -137,8 +138,8 @@ export default function About() {
                 </svg>
               </div>
               <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
-                A phrase is a short selection of words which when put together
-                create a concept.
+                I am keen on creating the wildest cakes! It will meet your
+                expectation in both visual and flavour
               </p>
             </motion.div>
 
@@ -182,14 +183,9 @@ export default function About() {
                 </svg>
               </div>
               <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
-                -I like travelling
-                <br />
-                -I like being out in nature
-                <br />
-                -I appreciate the simpler things in life now that I have a
-                family
-                <br />
-                -I’ve got a massive sweet tooth
+                Some things I enjoy are travelling and being out in nature. I
+                have been appreciating the simpler things in life now that I
+                have a family. I have also got a massive sweet tooth!
               </p>
             </motion.div>
           </motion.div>
