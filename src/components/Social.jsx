@@ -111,12 +111,6 @@ const Social = () => {
             Support
           </h2>
           <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
-            Legal policy
-          </p>
-          <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
-            Status policy
-          </p>
-          <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
             Privacy policy
           </p>
           <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
