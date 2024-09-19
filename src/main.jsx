@@ -20,6 +20,7 @@ import FAQ from "./Components/FAQ.jsx";
 import HomeNav from "./Components/HomeNav.jsx";
 import SignIn from "./Admin/SignIn.jsx";
 import ImageList from "./Admin/Store/ImageList.jsx";
+import SocialTest from "./Components/SocialTest.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

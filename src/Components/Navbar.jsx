@@ -9,12 +9,10 @@ export default function Navbar() {
   };
 
   // Colour of hover text to match logo #ebcaff
-
   return (
     <>
       <nav className="navbar bg-slate-600">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto ">
-          {/* Logo and text */}
+        <div className="navbarfile max-w-screen-xl mx-auto">
           <div className="flex items-center">
             <img
               src="./logo-removebg-preview.png"
@@ -25,9 +23,7 @@ export default function Navbar() {
               Rainbird Cakes
             </span>
           </div>
-
-          {/* Navigation links */}
-          <div className="hidden md:flex md:flex-1 md:justify-center space-x-8">
+          <div className="hidden md:flex md:flex-1 md:justify-end space-x-8">
             <Link
               to="/"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -62,7 +58,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile navigation */}
         <div
           className="items-center justify-between hidden w-full md:hidden"
           id="navbar-cta"

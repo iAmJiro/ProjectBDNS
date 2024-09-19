@@ -11,29 +11,31 @@ const Social = () => {
       behavior: "smooth",
     });
   };
+
   const [email, setEmail] = useState("");
   const [question, setQuestion] = useState("");
+
   const sendEmail = (e) => {
     e.preventDefault();
 
     const templateParams = {
-      user_email: email,
-      message: question,
+      fname: email,
+      lname: question,
     };
-    // email used is jiro54265@gmail.com
+
     emailjs
       .send(
-        "service_ujmuuix",
-        "template_vcro2nj",
+        "service_ujmuuix", // Service ID
+        "template_vcro2nj", // Template ID
         templateParams,
-        "WpHr0gPNNC_GAl9Bk"
+        "WpHr0gPNNC_GAl9Bk" // Public Key
       )
       .then(
         (result) => {
           console.log(result.text);
           alert("Email sent successfully!");
-          setEmail("");
-          setQuestion("");
+          setEmail(""); // Reset email input
+          setQuestion(""); // Reset question input
         },
         (error) => {
           console.log(error.text);
@@ -41,7 +43,7 @@ const Social = () => {
         }
       );
   };
-
+  //used jiro54265@gmail.com
   return (
     <div className="mx-auto container py-16 xl:px-20 lg:px-12 sm:px-6 px-4">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 md:gap-8 gap-4">
@@ -54,7 +56,7 @@ const Social = () => {
             All rights reserved
           </p>
           <div className="flex items-center gap-x-4 mt-12">
-            <div className=" w-8 h-8 flex-shrink-0">
+            <div className="w-8 h-8 flex-shrink-0">
               <SocialIcon
                 className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mr-5"
                 url="https://www.instagram.com/rainbirdscakes/"
@@ -62,7 +64,7 @@ const Social = () => {
                 rel="noopener noreferrer"
               />
             </div>
-            <div className=" w-8 h-8 flex-shrink-0 ">
+            <div className="w-8 h-8 flex-shrink-0">
               <SocialIcon
                 className="transform hover:scale-110 scale-90 focus:outline-none transition duration-150 ease-in-out mx-4"
                 url="https://www.facebook.com/emmalee.rainbird"
@@ -72,9 +74,10 @@ const Social = () => {
             </div>
           </div>
         </div>
+
         <div className="sm:ml-0 ml-8 flex-col flex">
           <h2 className="text-base font-semibold leading-4 text-gray-800">
-            What's here?{" "}
+            What's here?
           </h2>
           <Link
             onClick={scrollToTop}
@@ -106,6 +109,7 @@ const Social = () => {
             Testimonials
           </Link>
         </div>
+
         <div>
           <h2 className="text-base font-semibold leading-4 text-gray-800">
             Support
@@ -116,43 +120,6 @@ const Social = () => {
           <p className="hover:text-gray-500 text-base leading-4 mt-6 text-gray-800 cursor-pointer">
             Terms of service
           </p>
-        </div>
-        <div className="mt-10 lg:mt-0">
-          <label className="text-xl font-medium leading-5 text-gray-800">
-            Have a question?
-          </label>
-          <form onSubmit={sendEmail} className="mt-4">
-            <div className="cursor-pointer flex items-center justify-between border border-gray-800 mt-4">
-              <input
-                type="email"
-                name="user_email"
-                id="user_email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="text-base leading-4 p-4 w-full focus:outline-none text-gray-800 placeholder-gray-800"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-            <div className="cursor-pointer flex items-center justify-between border border-gray-800 mt-4">
-              <input
-                type="text"
-                name="message"
-                id="message"
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-                className="text-base leading-4 p-4 w-full focus:outline-none text-gray-800 placeholder-gray-800"
-                placeholder="Question here"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="mt-4 bg-gray-800 text-white py-2 px-4 rounded-full hover:bg-gray-700"
-            >
-              Send
-            </button>
-          </form>
         </div>
       </div>
     </div>

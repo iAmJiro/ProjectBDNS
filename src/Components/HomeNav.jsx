@@ -5,8 +5,7 @@ function HomeNav() {
   return (
     <>
       <nav className="navbar bg">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto ">
-          {/* Logo and text */}
+        <div className="max-w-screen-xl flex items-center justify-between mx-auto">
           <div className="flex items-center">
             <img
               src="./logo-removebg-preview.png"
@@ -18,7 +17,6 @@ function HomeNav() {
             </span>
           </div>
 
-          {/* Navigation links */}
           <div className="hidden md:flex md:flex-1 md:justify-center space-x-8">
             <Link
               to="/"
@@ -54,7 +52,6 @@ function HomeNav() {
           </div>
         </div>
 
-        {/* Mobile navigation */}
         <div
           className="items-center justify-between hidden w-full md:hidden"
           id="navbar-cta"
