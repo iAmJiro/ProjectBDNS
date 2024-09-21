@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\Backend\\Backend.csproj": {}
+    "C:\\Users\\Jiro\\Documents\\GitHub\\ProjectBDNS\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\Backend\\Backend.csproj": {
+    "C:\\Users\\Jiro\\Documents\\GitHub\\ProjectBDNS\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Jiro\\Documents\\GitHub\\ProjectBDNS\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\Jiro\\Documents\\GitHub\\ProjectBDNS\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\Jiro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jiro\\Documents\\GitHub\\ProjectBDNS\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jiro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -101,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
