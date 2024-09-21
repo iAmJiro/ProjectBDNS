@@ -10,20 +10,20 @@ namespace Backend.Dtos
     {
         public GetImageResponse(Image image){
             ImageId = image.ImageId;
-            Src = image.Src;
-            Alt = image.Alt;
+            ImageUrls = image.ImageUrls;
             Name = image.Name;
+            Description = image.Description;
             Price = image.Price;
 
             // Category = new GetCategoryResponse(image.Category!);
-            Category = new GetCategoryResponse(image.Categories!);
+            Category = new GetCategoryResponse(image.Category!);
 
         }
 
         public int ImageId { get; set; }
-        public string Src { get; set; } = default!;
-        public string Alt { get; set; } = default!;
+        public List<string> ImageUrls { get; set; } = new();
         public string Name { get; set; } = default!;
+        public string Description { get; set; } = default!;
         public decimal Price { get; set; } = default!;
 
         public GetCategoryResponse Category { get; set; } = default!;
