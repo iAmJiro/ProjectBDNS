@@ -24,10 +24,10 @@ namespace Backend.Controllers
 
         // api/Item/all
         [HttpGet, Route("all")]
-        
-        public ActionResult <List<GetImageResponse>>  GetAllItems()
+
+        public ActionResult<List<GetImageResponse>> GetAllItems()
         {
-            var item = db.Images.Include(item => item.Categories).ToList();
+            var item = db.Images.Include(item => item.Category).ToList();
             var response = item.Select(item => new GetImageResponse(item)).ToList();
             return response;
         }
@@ -35,7 +35,7 @@ namespace Backend.Controllers
         // api/Item/create
         [HttpPost, Route("create")]
         [Authorize("IsAdmin")]
-        public ActionResult <bool> CreateItems(CreateImageRequest request)
+        public ActionResult<bool> CreateItems(CreateImageRequest request)
         {
             var newIttem = request.ConverToItemModel();
             db.Images.Add(newIttem);
@@ -49,12 +49,36 @@ namespace Backend.Controllers
         public ActionResult<bool> DeleteItems(int id)
         {
             var itemDelete = db.Images.Find(id);
-            if (itemDelete == null){
+            if (itemDelete == null)
+            {
                 return false;
             }
             db.Images.Remove(itemDelete);
             var numRowsChanged = db.SaveChanges();
             return numRowsChanged == 1;
+        }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No file uploaded");
+
+            
+            var frontendUploadsFolder = Path.Combine("C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\public", "uploads");
+            Directory.CreateDirectory(frontendUploadsFolder); 
+
+            //save file
+            var fileName = Path.GetFileName(file.FileName);
+            var filePath = Path.Combine(frontendUploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var imageUrl = $"/ProjectBDNS/uploads/{file.FileName}";
+            return Ok(new { Url = imageUrl });
         }
     }
 }

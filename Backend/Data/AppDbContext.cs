@@ -54,11 +54,6 @@ namespace Backend.Models
              {
                  CategoryId = 2,
                  Name = "Cupcake",
-             },
-             new Category
-             {
-                 CategoryId = 3,
-                 Name = "Cookie",
              }
             );
              modelBuilder.Entity<Image>()
@@ -69,26 +64,34 @@ namespace Backend.Models
                 new Image{
                     CategoryId = 1,
                     ImageId = 1,
-                    Src = "",
-                    Alt = "",
-                    Name = "",
-                    Price = 0m,
+                    ImageUrls = new List<string> {"/ProjectBDNS/steph/cake1/one.jpg","/ProjectBDNS/steph/cake1/two.jpg","/ProjectBDNS/steph/cake1/three.jpg"},
+                    Name = "Pink Cake",
+                    Description = "White chocolate and raspberry cake with milk chocolate ganache filling, finished in vanilla buttercream. Gold cherries and 21 written on it. ",
+                    Price = 120.00m,
+                },
+                new Image{
+                    CategoryId = 1,
+                    ImageId = 2,
+                    ImageUrls = new List<string> {"/ProjectBDNS/steph/cake2/one.jpg","/ProjectBDNS/steph/cake2/two.jpg"},
+                    Name = "Wood Cake",
+                    Description = "Moreish vanilla cake with salted caramel filling and salted caramel buttercream - what a classic combination. ",
+                    Price = 150.00m,
                 },
                 new Image{
                     CategoryId = 2,
-                    ImageId = 2,
-                    Src = "",
-                    Alt = "",
-                    Name = "",
-                    Price = 0m,
+                    ImageId = 3,
+                    ImageUrls = new List<string> {"/ProjectBDNS/steph/cupcake2/one.jpg","/ProjectBDNS/steph/cupcake2/two.jpg"},
+                    Name = "12pk Cupcake",
+                    Description =  "Raspberry white chocolate is fast becoming one of my most requested cake flavours! Pair it with a vanilla buttercream and you’re on your way",
+                    Price = 85.00m,
                 },
                 new Image{
-                    CategoryId = 3,
-                    ImageId = 3,
-                    Src = "",
-                    Alt = "",
-                    Name = "",
-                    Price = 0m,
+                    CategoryId = 2,
+                    ImageId = 4,
+                    ImageUrls = new List<string> {"/ProjectBDNS/steph/cupcake1/one.jpg","/ProjectBDNS/steph/cupcake1/two.jpg","/ProjectBDNS/steph/cupcake1/three.jpg"},
+                    Name = "Bento Box Cupcake",
+                    Description =  "You’re welcome to mix and match cupcake flavours Bento box consists of mini cake, 4 cupcakes and 2 sugar cookies",
+                    Price = 65.00m,
                 }
             );
 

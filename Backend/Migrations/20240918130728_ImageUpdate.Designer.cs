@@ -3,6 +3,7 @@ using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240918130728_ImageUpdate")]
+    partial class ImageUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +91,7 @@ namespace Backend.Migrations
                             ImageId = 1,
                             CategoryId = 1,
                             Description = "White chocolate and raspberry cake with milk chocolate ganache filling, finished in vanilla buttercream. Gold cherries and 21 written on it. ",
-                            ImageUrls = "[\"/ProjectBDNS/steph/cake1/one.jpg\",\"/ProjectBDNS/steph/cake1/two.jpg\",\"/ProjectBDNS/steph/cake1/three.jpg\"]",
+                            ImageUrls = "[\"/steph/cake1/one.jpg\",\"/steph/cake1/two.jpg\",\"/steph/cake1/three.jpg\"]",
                             Name = "Pink Cake",
                             Price = 120.00m
                         },
@@ -97,7 +100,7 @@ namespace Backend.Migrations
                             ImageId = 2,
                             CategoryId = 1,
                             Description = "Moreish vanilla cake with salted caramel filling and salted caramel buttercream - what a classic combination. ",
-                            ImageUrls = "[\"/ProjectBDNS/steph/cake2/one.jpg\",\"/ProjectBDNS/steph/cake2/two.jpg\"]",
+                            ImageUrls = "[\"/steph/cake2/one.jpg\",\"/steph/cake2/two.jpg\"]",
                             Name = "Wood Cake",
                             Price = 150.00m
                         },
@@ -105,19 +108,19 @@ namespace Backend.Migrations
                         {
                             ImageId = 3,
                             CategoryId = 2,
-                            Description = "Raspberry white chocolate is fast becoming one of my most requested cake flavours! Pair it with a vanilla buttercream and you’re on your way",
-                            ImageUrls = "[\"/ProjectBDNS/steph/cupcake2/one.jpg\",\"/ProjectBDNS/steph/cupcake2/two.jpg\"]",
-                            Name = "12pk Cupcake",
-                            Price = 85.00m
+                            Description = "You’re welcome to mix and match cupcake flavours Bento box consists of mini cake, 4 cupcakes and 2 sugar cookies",
+                            ImageUrls = "[\"/steph/cupcake1/one.jpg\",\"/steph/cupcake1/two.jpg\",\"/steph/cupcake1/three.jpg\"]",
+                            Name = "Bento Box Cupcake",
+                            Price = 65.00m
                         },
                         new
                         {
                             ImageId = 4,
                             CategoryId = 2,
-                            Description = "You’re welcome to mix and match cupcake flavours Bento box consists of mini cake, 4 cupcakes and 2 sugar cookies",
-                            ImageUrls = "[\"/ProjectBDNS/steph/cupcake1/one.jpg\",\"/ProjectBDNS/steph/cupcake1/two.jpg\",\"/ProjectBDNS/steph/cupcake1/three.jpg\"]",
-                            Name = "Bento Box Cupcake",
-                            Price = 65.00m
+                            Description = "Raspberry white chocolate is fast becoming one of my most requested cake flavours! Pair it with a vanilla buttercream and you’re on your way",
+                            ImageUrls = "[\"/steph/cupcake2/one.jpg\",\"/steph/cupcake2/two.jpg\"]",
+                            Name = "12pk Cupcake",
+                            Price = 85.00m
                         });
                 });
 

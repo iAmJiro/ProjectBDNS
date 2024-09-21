@@ -102,10 +102,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseCors(option => option.AllowAnyHeader()
     .AllowAnyMethod()
     .WithOrigins("http://localhost:5173"));
+
 
 app.UseAuthentication();
 app.UseAuthorization();

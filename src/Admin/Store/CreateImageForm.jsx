@@ -1,57 +1,177 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDropzone } from 'react-dropzone';
 
-export default function CreateImageForm({ isOpen, onClose }) {
-    const navigate = useNavigate();
-    const srcInput = useRef('');
-    const altInput = useRef('');
-    const nameInput = useRef('');
-    const priceInput = useRef('');
-    const categoryIdInput = useRef('');
+const CreateImageForm = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
 
-    const submitFormHandler = () => {
-        const newImageRequest = {
-            src: srcInput.current.value,
-            alt: altInput.current.value,
-            name: nameInput.current.value,
-            price: parseFloat(priceInput.current.value),
-            categoryId: parseInt(categoryIdInput.current.value)
-        };
+  const imageName = useRef('');
+  const imageDescription = useRef('');
+  const imagePrice = useRef('');
+  const categoryId = useRef('');
 
-        fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/image/create`, {
-            method: 'post',
-            body: JSON.stringify(newImageRequest),
-            headers: {
-                "Content-Type": 'application/json',
-                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
-            }
-        })
-        .then(res => res.json())
-        .then(success => {
-            if(success) navigate(0); // Refresh the page
-        });
+  const [uploadedImages, setUploadedImages] = useState([]); 
+  const [uploadError, setUploadError] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+
+  const onDrop = (acceptedFiles) => {
+    setIsUploading(true);
+    setUploadError('');
+
+    const formData = new FormData();
+    formData.append('file', acceptedFiles[0]);
+
+    fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/image/upload`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.url) {
+          setUploadedImages((prevFiles) => [...prevFiles, data.url]); 
+        } else {
+          setUploadError('Failed to upload image.');
+        }
+        setIsUploading(false);
+      })
+      .catch((err) => {
+        console.error('Error uploading image:', err);
+        setUploadError('Failed to upload image.');
+        setIsUploading(false);
+      });
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
+  const SubmitFormHandler = () => {
+    const name = imageName.current.value;
+    const description = imageDescription.current.value;
+    const price = parseFloat(imagePrice.current.value);
+    const category = parseInt(categoryId.current.value);
+
+    const newImageRequest = {
+      name,
+      description,
+      price,
+      imageUrls: uploadedImages, 
+      categoryId: category,
     };
 
-    if (!isOpen) return null;
-    return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white rounded-lg shadow-lg w-1/3">
-                <div className="flex justify-between items-center p-4 border-b">
-                    <h3 className="text-lg font-semibold">Create New Image</h3>
-                    <button onClick={onClose} className="text-gray-600 hover:text-gray-900">&times;</button>
-                </div>
-                <div className="p-4">
-                    <input ref={srcInput} placeholder="Image Src" className="mt-4 p-2 border rounded w-full" />
-                    <input ref={altInput} placeholder="Alt Text" className="mt-4 p-2 border rounded w-full" />
-                    <input ref={nameInput} placeholder="Name" className="mt-4 p-2 border rounded w-full" />
-                    <input ref={priceInput} type="number" placeholder="Price" className="mt-4 p-2 border rounded w-full" />
-                    <input ref={categoryIdInput} type="number" placeholder="Category ID" className="mt-4 p-2 border rounded w-full" />
-                </div>
-                <div className="flex justify-end p-4 border-t">
-                    <button onClick={onClose} className="bg-gray-500 text-white px-4 py-2 rounded mr-2">Close</button>
-                    <button onClick={submitFormHandler}  className="bg-green-500 text-white px-4 py-2 rounded">Create</button>
-                </div>
-            </div>
+    fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/image/create`, {
+      method: 'POST',
+      body: JSON.stringify(newImageRequest),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((success) => {
+        if (success) navigate(0); 
+      })
+      .catch((error) => {
+        console.error('Error creating image:', error);
+      });
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+      <div className="bg-white p-6 rounded-lg shadow-md w-1/3">
+        <h2 className="text-2xl font-bold mb-4">Create New Image</h2>
+
+        <div {...getRootProps()} className="p-4 border-2 border-dashed rounded mb-4">
+          <input {...getInputProps()} />
+          {isUploading ? (
+            <p>Uploading...</p>
+          ) : (
+            <p>Drag 'n' drop some files here, or click to select files</p>
+          )}
         </div>
-    );
-}
+        {uploadError && <p className="text-red-500">{uploadError}</p>}
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {uploadedImages.map((url, index) => (
+            <p key={index} className="text-gray-700">
+              {url.split('/').pop()} 
+            </p>
+          ))}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            ref={imageName}
+            placeholder="Image Name"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+            Description
+          </label>
+          <input
+            type="text"
+            id="description"
+            ref={imageDescription}
+            placeholder="Image Description"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+            Price
+          </label>
+          <input
+            type="number"
+            id="price"
+            ref={imagePrice}
+            placeholder="Image Price"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="categoryId">
+            Category
+          </label>
+          <select
+            id="categoryId"
+            ref={categoryId}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="">Select Category</option>
+            <option value="1">Cake</option>
+            <option value="2">Cupcake</option>
+          </select>
+        </div>
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={onClose}
+            className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            onClick={SubmitFormHandler}
+            className="bg-green-500 text-white px-4 py-2 rounded"
+          >
+            Create Image
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CreateImageForm;
