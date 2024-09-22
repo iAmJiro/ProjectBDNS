@@ -37,7 +37,7 @@ function Forms() {
   };
 
   return (
-    <div className="isolate bg-white">
+    <div className="isolate bg-white dark:bg-gray-900">
       <Navbar />
 
       <div
@@ -59,10 +59,10 @@ function Forms() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mt-10">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-800 dark:text-white sm:text-4xl mt-10">
           Event Cake Order Form
         </h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">
+        <p className="mt-2 text-lg leading-8 text-gray-800 dark:text-white">
           Please fill out the form below to request a cake for your event.
         </p>
       </motion.div>
@@ -83,7 +83,7 @@ function Forms() {
           >
             <label
               htmlFor="fname"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               First name
             </label>
@@ -93,7 +93,7 @@ function Forms() {
                 name="fname"
                 id="fname"
                 autoComplete="given-name"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Emma"
               />
             </div>
@@ -106,7 +106,7 @@ function Forms() {
           >
             <label
               htmlFor="lname"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Last name
             </label>
@@ -116,7 +116,7 @@ function Forms() {
                 name="lname"
                 id="lname"
                 autoComplete="family-name"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Rainbird"
               />
             </div>
@@ -130,7 +130,7 @@ function Forms() {
           >
             <label
               htmlFor="email"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Email
             </label>
@@ -141,7 +141,7 @@ function Forms() {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -154,7 +154,7 @@ function Forms() {
           >
             <label
               htmlFor="contact"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Contact number
             </label>
@@ -164,7 +164,7 @@ function Forms() {
                 type="tel"
                 name="contact"
                 id="contact"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -177,7 +177,7 @@ function Forms() {
           >
             <label
               htmlFor="address"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Full address
             </label>
@@ -187,7 +187,7 @@ function Forms() {
                 type="text"
                 name="address"
                 id="address"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -200,7 +200,7 @@ function Forms() {
           >
             <label
               htmlFor="eventt"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Event type
             </label>
@@ -208,7 +208,7 @@ function Forms() {
               <select
                 name="eventt"
                 id="eventt"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               >
                 <option>Birthday</option>
                 <option>Anniversary</option>
@@ -233,7 +233,7 @@ function Forms() {
           >
             <label
               htmlFor="eventd"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Event date
             </label>
@@ -242,7 +242,7 @@ function Forms() {
                 type="date"
                 name="eventd"
                 id="eventd"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -255,7 +255,7 @@ function Forms() {
           >
             <label
               htmlFor="eventth"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Event Theme
             </label>
@@ -265,7 +265,7 @@ function Forms() {
                 type="text"
                 name="eventth"
                 id="eventth"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -278,7 +278,7 @@ function Forms() {
           >
             <label
               htmlFor="flavour"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Cake Flavour
             </label>
@@ -288,7 +288,7 @@ function Forms() {
                 type="text"
                 name="flavour"
                 id="flavour"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -301,7 +301,7 @@ function Forms() {
           >
             <label
               htmlFor="tier"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Number of Tiers
             </label>
@@ -311,7 +311,7 @@ function Forms() {
                 type="text"
                 name="tier"
                 id="tier"
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -324,7 +324,7 @@ function Forms() {
           >
             <label
               htmlFor="message"
-              className="block text-sm font-semibold leading-6 text-gray-900"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
               Additional information
             </label>
@@ -334,7 +334,7 @@ function Forms() {
                 name="message"
                 id="message"
                 rows={4}
-                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="bg-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={""}
               />
             </div>

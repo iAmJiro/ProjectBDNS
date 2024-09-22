@@ -46,7 +46,7 @@ export default function Navbar() {
               to="/Gallery"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
-              Gallery
+              Products
             </Link>
 
             <Link
@@ -84,7 +84,7 @@ export default function Navbar() {
                 to="/ProjectBDNS/Gallery"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
-                Gallery
+                Products
               </Link>
             </li>
             <li>

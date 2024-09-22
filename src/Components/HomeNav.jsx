@@ -11,14 +11,12 @@ function HomeNav() {
 
   useEffect(() => {
     if (isOpen) {
-      // Disable scrolling by setting overflow to hidden
+      // cant scroll
       document.body.style.overflow = "hidden";
     } else {
-      // Re-enable scrolling
+      // can scroll
       document.body.style.overflow = "auto";
     }
-
-    // Cleanup the effect when the component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -31,7 +29,7 @@ function HomeNav() {
           <img
             src="./logo-removebg-preview.png"
             className="websitelogo h-20"
-            alt="Flowbite Logo"
+            alt="Rainbird Cakes Logo"
           />
           <span className="websitename self-center text-2xl font-semibold whitespace-nowrap text-white ml-2">
             Rainbird Cakes
@@ -58,6 +56,7 @@ function HomeNav() {
           </svg>
         </button>
 
+        {/* desktop nav */}
         <div className="hidden md:flex md:flex-1 md:justify-center space-x-8">
           <Link
             to="/"
@@ -81,7 +80,7 @@ function HomeNav() {
             to="/Gallery"
             className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
-            Gallery
+            Products
           </Link>
           <Link
             to="/FAQ2"
@@ -92,49 +91,61 @@ function HomeNav() {
         </div>
       </div>
 
+      {/* mobile nav */}
       <div
-        className={`md:hidden ${
-          isOpen ? "block" : "hidden"
-        } w-full bg-gray-700`}
+        className={`fixed top-20 left-0 right-0 z-50 bg-gray-900 bg-opacity-100 transition-transform duration-500 ease-in-out transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        <ul className="flex flex-col font-medium p-4">
-          <li>
-            <Link
-              to="/"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Forms"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              onClick={toggleMenu}
-            >
-              Forms
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Gallery"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              onClick={toggleMenu}
-            >
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/FAQ2"
-              className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              onClick={toggleMenu}
-            >
-              FAQ
-            </Link>
-          </li>
-        </ul>
+        <div className="flex flex-col items-center justify-center h-[calc(100vh-5rem)] space-y-8">
+          <ul className="text-center text-3xl font-semibold text-white space-y-8">
+            <li>
+              <Link
+                to="/"
+                onClick={toggleMenu}
+                className="hover:text-gray-400 transition duration-300 block py-4"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/About"
+                onClick={toggleMenu}
+                className="hover:text-gray-400 transition duration-300 block py-4"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/Forms"
+                onClick={toggleMenu}
+                className="hover:text-gray-400 transition duration-300 block py-4"
+              >
+                Forms
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/Gallery"
+                onClick={toggleMenu}
+                className="hover:text-gray-400 transition duration-300 block py-4"
+              >
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/FAQ2"
+                onClick={toggleMenu}
+                className="hover:text-gray-400 transition duration-300 block py-4"
+              >
+                FAQ
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
