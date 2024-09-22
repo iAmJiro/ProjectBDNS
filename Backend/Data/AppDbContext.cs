@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Backend.Models;
 
 namespace Backend.Models
 {
@@ -9,6 +10,8 @@ namespace Backend.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
+
+        public DbSet<FAQ> FAQs { get; set; }
 
 
 
@@ -94,8 +97,42 @@ namespace Backend.Models
                     Price = 65.00m,
                 }
             );
+            modelBuilder.Entity<FAQ>().HasData(
+            
+                new FAQ
+                {
+                    FAQId = 1,
+                    FAQQuestion = "Do you deliver cakes?",
+                    FAQAnswer = "Currently, we offer pick-up only for all orders, Our cakes can be picked up from our Wairarapa location."
+                },
+                new FAQ
+                {
+                    FAQId = 2,
+                    FAQQuestion = "Can i customize the flavour of my cake?",
+                    FAQAnswer = "Yes, you can customize the flavour of your cake. However, we only offer flavours that are availabe on our menu."
+                },
+                new FAQ
+                {
+                    FAQId = 3,
+                    FAQQuestion = "How long does it take to complete an order?",
+                    FAQAnswer = "It usually takes 2-3 weeks to complete a custom cake order. We recommend playing your order well in advance to ensure availability."
+                },
+                new FAQ
+                {
+                    FAQId = 4,
+                    FAQQuestion = "Can I choose my own cake design?",
+                    FAQAnswer = "Yes, you can choose your own cake design. We work with you to create a cake that fits your vision."
+                },
+                new FAQ
+                {
+                    FAQId = 5,
+                    FAQQuestion = "Can I choose my own caSke design?",
+                    FAQAnswer = "Yes, you can choose your own cake design. We work with you to create a cake that fits your vision."
+                }
+            );
 
 
         }
+        public DbSet<Backend.Models.FAQ> FAQ { get; set; } = default!;
     }
 }

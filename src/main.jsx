@@ -21,7 +21,7 @@ import HomeNav from "./Components/HomeNav.jsx";
 import SignIn from "./Admin/SignIn.jsx";
 import ImageList from "./Admin/Store/ImageList.jsx";
 import SocialTest from "./Components/SocialTest.jsx";
-
+import FAQ2 from "./Components/FAQ2.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS/">
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* <Route path="/Gallery" element={<Gallery />} /> */}
         <Route path="/Testimonials" element={<Testimonials />} />
         <Route path="/About" element={<About />} />
-        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/FAQ2" element={<FAQ2 />} />
         {/* <Route path="/Contact" element={<Contact />} /> */}
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Gallery" element={<ImageList />} />

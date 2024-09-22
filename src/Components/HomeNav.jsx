@@ -33,7 +33,7 @@ function HomeNav() {
             className="websitelogo h-20"
             alt="Flowbite Logo"
           />
-          <span className="websitename self-center text-2xl font-semibold whitespace-nowrap dark:text-white ml-2">
+          <span className="websitename self-center text-2xl font-semibold whitespace-nowrap text-white ml-2">
             Rainbird Cakes
           </span>
         </div>
@@ -84,7 +84,7 @@ function HomeNav() {
             Gallery
           </Link>
           <Link
-            to="/FAQ"
+            to="/FAQ2"
             className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             FAQ
@@ -127,7 +127,7 @@ function HomeNav() {
           </li>
           <li>
             <Link
-              to="/FAQ"
+              to="/FAQ2"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               onClick={toggleMenu}
             >

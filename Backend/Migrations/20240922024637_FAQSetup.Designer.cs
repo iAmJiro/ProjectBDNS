@@ -3,6 +3,7 @@ using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240922024637_FAQSetup")]
+    partial class FAQSetup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,12 +93,6 @@ namespace Backend.Migrations
                         new
                         {
                             FAQId = 4,
-                            FAQAnswer = "Yes, you can choose your own cake design. We work with you to create a cake that fits your vision.",
-                            FAQQuestion = "Can I choose my own cake design?"
-                        },
-                        new
-                        {
-                            FAQId = 5,
                             FAQAnswer = "Yes, you can choose your own cake design. We work with you to create a cake that fits your vision.",
                             FAQQuestion = "Can I choose my own cake design?"
                         });

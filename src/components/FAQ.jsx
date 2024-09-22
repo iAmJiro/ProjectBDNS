@@ -32,7 +32,7 @@ const FAQ = () => {
         />
       </div>
       <div className="lg:container lg:mx-auto lg:py-16 md:py-12 md:px-6 py-12 px-4">
-        <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">
+        <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 font-semibold text-gray-800 dark:text-white">
           FAQ's
         </h1>
         <div className="lg:w-8/12 w-full mx-auto">
@@ -55,8 +55,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 md:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 md:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q1.
                   </span>
                   Do you deliver cakes?
@@ -64,7 +64,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen(!open)}
               >
                 <svg
@@ -95,7 +95,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     Currently, we offer pick-up only for all orders. Our cakes
                     can be picked up from our Wairarapa location.
                   </p>
@@ -123,8 +123,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q2.
                   </span>
                   Can I customize the flavor of my cake?
@@ -132,7 +132,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen2(!open2)}
               >
                 <svg
@@ -163,7 +163,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     Yes, you can customize the flavor of your cake. However, we
                     only offer flavors that are available on our menu.
                   </p>
@@ -191,8 +191,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q3.
                   </span>
                   How long does it take to complete an order?
@@ -200,7 +200,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen3(!open3)}
               >
                 <svg
@@ -231,7 +231,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     It usually takes 2-3 weeks to complete a custom cake order.
                     We recommend placing your order well in advance to ensure
                     availability.
@@ -260,8 +260,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q4.
                   </span>
                   Can I choose my own cake design?
@@ -269,7 +269,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen4(!open4)}
               >
                 <svg
@@ -300,7 +300,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     Yes, you can choose your own cake design. We work with you
                     to create a cake that fits your vision.
                   </p>
@@ -328,8 +328,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q5.
                   </span>
                   How do I place an order?
@@ -337,7 +337,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen5(!open5)}
               >
                 <svg
@@ -368,7 +368,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     You can place an order by contacting us through our website
                     or by giving us a call. We'll guide you through the process
                     and help you with all the details.
@@ -397,8 +397,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q6.
                   </span>
                   Do you offer cake tastings?
@@ -406,7 +406,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen6(!open6)}
               >
                 <svg
@@ -437,7 +437,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     Yes, we offer cake tastings by appointment. Please contact
                     us to schedule a tasting session to try out our available
                     flavors.
@@ -466,8 +466,8 @@ const FAQ = () => {
               className="flex justify-between items-center w-full"
             >
               <div>
-                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800">
-                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800">
+                <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                  <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                     Q7.
                   </span>
                   Can I make changes to my order after it has been placed?
@@ -475,7 +475,7 @@ const FAQ = () => {
               </div>
               <button
                 aria-label="toggler"
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800"
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
                 onClick={() => setOpen7(!open7)}
               >
                 <svg
@@ -506,7 +506,7 @@ const FAQ = () => {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-base leading-6 text-gray-600 font-normal">
+                  <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
                     Changes to orders can be made within 48 hours of placing the
                     order. After that, we may not be able to accommodate changes
                     due to the preparation process.

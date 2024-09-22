@@ -19,7 +19,7 @@ export default function Navbar() {
               className="h-20"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white ml-2">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white ml-2">
               Rainbird Cakes
             </span>
           </div>
@@ -50,7 +50,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="/FAQ"
+              to="/FAQ2"
               className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
             >
               FAQ
@@ -89,7 +89,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                to="/ProjectBDNS/FAQ"
+                to="/ProjectBDNS/FAQ2"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >
                 FAQ

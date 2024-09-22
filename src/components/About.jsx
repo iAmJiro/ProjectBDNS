@@ -34,7 +34,7 @@ export default function About() {
           }}
         />
       </div>
-      <div className="2xl:mx-auto 2xl:container 2xl:px-20 px-6">
+      <div className="2xl:mx-auto 2xl:container 2xl:px-20 px-6 ">
         <div className="flex flex-col-reverse md:flex-row items-center justify-center">
           <motion.div
             className="flex flex-col items-center md:items-end justify-center md:py-20 xl:w-1/2 sm:w-1/2 lg:mr-20 md:mr-6 xl:mr-28"
@@ -46,10 +46,10 @@ export default function About() {
               className="flex flex-col items-center justify-center"
               variants={contentVariants}
             >
-              <h1 className="text-center text-3xl md:text-5xl font-bold text-gray-800">
+              <h1 className="text-center text-3xl md:text-5xl font-bold text-gray-800 dark:text-white">
                 Who am I?
               </h1>
-              <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
+              <p className="w-full mt-6 text-base leading-6 text-gray-800 dark:text-white sm:w-96 text-justify">
                 I’m Emma-Lee Rainbird. 26 years old, half Filipino, Mum of two
                 awesome boys & Fiancé to Ben. I was born and raised here in
                 Masterton New Zealand and here is where we are also raising our
@@ -89,7 +89,7 @@ export default function About() {
                   />
                 </svg>
               </div>
-              <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
+              <p className="w-full mt-6 text-base leading-6 text-gray-800 dark:text-white sm:w-96 text-justify">
                 Baking has always been something that I’ve enjoyed ever since a
                 young age! I’ve got over 6 years experience in the bakery
                 industry where I currently still specialise in making pastries,
@@ -137,7 +137,7 @@ export default function About() {
                   />
                 </svg>
               </div>
-              <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
+              <p className="w-full mt-6 text-base leading-6 text-gray-800 dark:text-white sm:w-96 text-justify">
                 I am keen on creating the wildest cakes! It will meet your
                 expectation in both visual and flavour
               </p>
@@ -182,7 +182,7 @@ export default function About() {
                   />
                 </svg>
               </div>
-              <p className="w-full mt-6 text-base leading-6 text-gray-600 sm:w-96 text-justify">
+              <p className="w-full mt-6 text-base leading-6 text-gray-800 dark:text-white sm:w-96 text-justify">
                 Some things I enjoy are travelling and being out in nature. I
                 have been appreciating the simpler things in life now that I
                 have a family. I have also got a massive sweet tooth!
