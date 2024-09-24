@@ -93,7 +93,7 @@ function HomeNav() {
 
       {/* mobile nav */}
       <div
-        className={`fixed top-24 left-0 right-0 z-50 bg-gradient-to-r from-black to-pink-500 bg-opacity-100 transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-24 left-0 right-0 z-50 bg-gradient-to-r from-gray-800 to-fuchsia-300 bg-opacity-100 transition-transform duration-500 ease-in-out transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
