@@ -93,11 +93,11 @@ function HomeNav() {
 
       {/* mobile nav */}
       <div
-        className={`fixed top-20 left-0 right-0 z-50 bg-gray-900 bg-opacity-100 transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-24 left-0 right-0 z-50 bg-gradient-to-r from-black to-pink-500 bg-opacity-100 transition-transform duration-500 ease-in-out transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-[calc(100vh-5rem)] space-y-8">
+        <div className="flex flex-row pl-10 items-center justify-start h-[calc(100vh-5rem)] space-y-8">
           <ul className="text-center text-3xl font-semibold text-white space-y-8">
             <li>
               <Link

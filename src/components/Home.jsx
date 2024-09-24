@@ -49,7 +49,6 @@ function Home() {
       <div className="homepart3">
         <OrderInstructions />
       </div>
-
       <div className="homepart5"></div>
     </motion.div>
   );
