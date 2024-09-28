@@ -14,16 +14,16 @@ function Testimonials() {
         <div>
           <div className="lg:px-20 md:px-6 px-4 py-12">
             <div className="flex flex-col items-center justify-center">
-              <h1 className="lg:text-4xl text-3xl font-bold text-center text-gray-800">
+              <h1 className="lg:text-4xl text-3xl font-bold text-center text-gray-800 dark:text-white">
                 Hear from our clients
               </h1>
-              <p className="text-base leading-6 mt-4 text-center text-gray-600 2xl:w-2/5 ">
+              <p className="text-base leading-6 mt-4 text-center text-gray-600 2xl:w-2/5 dark:text-white">
                 Here is why you should trust us with your work achievements
               </p>
             </div>
             <div className="w-full lg:flex items-center gap-6 mt-10">
               <div className="lg:w-1/2">
-                <div className="bg-white border rounded-md border-gray-200 relative sm:p-10 p-6">
+                <div className="bg-white border rounded-md border-gray-200 relative sm:p-10">
                   <div>
                     <img
                       src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg1.svg"

@@ -117,6 +117,13 @@ const Social = () => {
           </Link>
 
         </div>
+        <div>
+          <img
+            src="./logo-removebg-preview.png"
+            className="websitelogo h-48"
+            alt="Rainbird Cakes Logo"
+          />
+        </div>
       </div>
     </div>
   );
