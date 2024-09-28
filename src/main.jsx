@@ -22,6 +22,8 @@ import SignIn from "./Admin/SignIn.jsx";
 import ImageList from "./Admin/Store/ImageList.jsx";
 import SocialTest from "./Components/SocialTest.jsx";
 import FAQ2 from "./Components/FAQ2.jsx";
+import TermsOfService from "./Components/TermsOfService.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS/">
@@ -35,6 +37,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         {/* <Route path="/Contact" element={<Contact />} /> */}
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Gallery" element={<ImageList />} />
+        <Route path="/terms" element={<TermsOfService />} />
+
       </Routes>
       <Social />
     </Router>
