@@ -21,7 +21,7 @@ const FAQ2 = () => {
   useEffect(() => {
     const fetchFAQs = async () => {
       try {
-        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq`; // Update with your backend URL
+        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq`;
         const response = await fetch(url);
         const data = await response.json();
         setFaqs(data);
@@ -76,7 +76,7 @@ const FAQ2 = () => {
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
-        { user_email: email, user_question: question }, // Make sure the template uses these exact parameters
+        { email: email, question: question },
         USER_ID
       );
 
@@ -234,7 +234,8 @@ const FAQ2 = () => {
               </label>
               <input
                 type="email"
-                id="email"
+                id="email" // Corrected ID
+                name="email" // Corrected name to match EmailJS template
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -249,7 +250,8 @@ const FAQ2 = () => {
                 Your Question
               </label>
               <textarea
-                id="question"
+                id="question" // Corrected ID
+                name="question" // Corrected name to match EmailJS template
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 required
@@ -259,7 +261,7 @@ const FAQ2 = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className={`px-4 py-2 rounded-lg bg-blue-500 text-white ${
+                className={`px-4 py-2 rounded-lg bg-purple-500 text-white ${
                   isSending ? "opacity-50" : ""
                 }`}
                 disabled={isSending}
