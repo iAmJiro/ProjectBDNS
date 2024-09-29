@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar.jsx";
 import { motion, AnimatePresence } from "framer-motion";
-import FAQCreateForm from './FAQCreateForm';
+import FAQCreateForm from "./FAQCreateForm";
+import emailjs from "emailjs-com";
 
 const FAQ2 = () => {
   const [faqs, setFaqs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openIndexes, setOpenIndexes] = useState({});
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [question, setQuestion] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [sendSuccess, setSendSuccess] = useState(null);
+
+  const SERVICE_ID = "service_ujmuuix";
+  const TEMPLATE_ID = "template_vcro2nj";
+  const USER_ID = "WpHr0gPNNC_GAl9Bk";
 
   useEffect(() => {
     const fetchFAQs = async () => {
       try {
-        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq`;
-        console.log("Fetching FAQs from:", url);
+        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq`; // Update with your backend URL
         const response = await fetch(url);
-        console.log("Response status:", response.status);
         const data = await response.json();
-        console.log("Fetched FAQs data:", data);
         setFaqs(data);
       } catch (error) {
         console.error("Error fetching FAQs:", error);
@@ -38,23 +44,22 @@ const FAQ2 = () => {
 
   const handleDelete = async (faqId) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/${faqId}`, {
-        method: 'DELETE',
+      const response = await fetch(`your_backend_url/api/faq/${faqId}`, {
+        method: "DELETE",
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('Failed to delete FAQ:', errorText);
+        console.error("Failed to delete FAQ:", errorText);
         return;
       }
 
-
       setFaqs(faqs.filter((faq) => faq.faqId !== faqId));
     } catch (error) {
-      console.error('Error deleting FAQ:', error);
+      console.error("Error deleting FAQ:", error);
     }
   };
 
@@ -63,15 +68,35 @@ const FAQ2 = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        { user_email: email, user_question: question }, // Make sure the template uses these exact parameters
+        USER_ID
+      );
+
+      setSendSuccess(true);
+      setEmail("");
+      setQuestion("");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSendSuccess(false);
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
-    {
-      /*can change the loading visuals later*/
-    }
   }
 
   return (
-    <div>
+    <div className="">
       <Navbar />
       <div
         className="mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -85,13 +110,12 @@ const FAQ2 = () => {
           }}
         />
       </div>
-      <div className="lg:container lg:mx-auto lg:py-16 md:py-12 md:px-6 py-12 px-4">
+      <div className="lg:container lg:mx-auto lg:py-16 md:py-12 md:px-6 py-12 px-4 ">
         <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 font-semibold text-gray-800 dark:text-white">
           FAQ's
         </h1>
 
-
-        {sessionStorage.getItem('userGroup') === '1' && (
+        {sessionStorage.getItem("userGroup") === "1" && (
           <div className="flex justify-center mt-8">
             <button
               onClick={() => setIsFormOpen(true)}
@@ -109,11 +133,10 @@ const FAQ2 = () => {
             faqs={faqs}
           />
         )}
+
         <div className="lg:w-8/12 w-full mx-auto">
           {faqs.map((faq, index) => (
             <div key={faq.faqId}>
-              {console.log(faq.FAQQuestion, faq.FAQAnswer)}{" "}
-              {/*check if the faq is going through*/}
               <motion.hr
                 className="w-full lg:mt-10 my-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -128,10 +151,10 @@ const FAQ2 = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex">
-                  {sessionStorage.getItem('userGroup') === '1' && (
+                  {sessionStorage.getItem("userGroup") === "1" && (
                     <button
                       onClick={() => handleDelete(faq.faqId)}
-                      className="mt-4 bg-red-500 text-white mr-5 px-3 py-1  rounded-lg"
+                      className="mt-4 bg-red-500 text-white mr-5 px-3 py-1 rounded-lg"
                     >
                       Delete
                     </button>
@@ -142,9 +165,8 @@ const FAQ2 = () => {
                         <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
                           Q{index + 1}.
                         </span>
-                        {faq.faqQuestion} {/* Ensure this is rendering */}
+                        {faq.faqQuestion}
                       </p>
-
                     </div>
                     <button
                       aria-label="toggler"
@@ -152,8 +174,9 @@ const FAQ2 = () => {
                       onClick={() => toggleOpen(index)}
                     >
                       <svg
-                        className={`transform ${openIndexes[index] ? "rotate-180" : "rotate-0"
-                          }`}
+                        className={`transform ${
+                          openIndexes[index] ? "rotate-180" : "rotate-0"
+                        }`}
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
@@ -169,7 +192,6 @@ const FAQ2 = () => {
                         />
                       </svg>
                     </button>
-
                   </div>
                 </div>
 
@@ -184,16 +206,80 @@ const FAQ2 = () => {
                       transition={{ duration: 0.3 }}
                     >
                       <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
-                        {faq.faqAnswer} {/* Ensure this is rendering */}
+                        {faq.faqAnswer}
                       </p>
-
-
                     </motion.div>
                   )}
                 </AnimatePresence>
               </motion.div>
             </div>
           ))}
+        </div>
+
+        {/* EmailJS Form */}
+        <div className="mt-12 lg:w-8/12 w-full mx-auto">
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-white text-center mb-6">
+            Have More Questions? Ask Us!
+          </h2>
+          <form
+            onSubmit={sendEmail}
+            className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6"
+          >
+            <div className="mb-4">
+              <label
+                className="block text-gray-800 dark:text-white text-sm font-bold mb-2"
+                htmlFor="email"
+              >
+                Your Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-3 py-2 text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-800 dark:text-white text-sm font-bold mb-2"
+                htmlFor="question"
+              >
+                Your Question
+              </label>
+              <textarea
+                id="question"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                required
+                className="w-full px-3 py-2 text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none"
+              />
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className={`px-4 py-2 rounded-lg bg-blue-500 text-white ${
+                  isSending ? "opacity-50" : ""
+                }`}
+                disabled={isSending}
+              >
+                {isSending ? "Sending..." : "Submit"}
+              </button>
+            </div>
+
+            {/* Feedback message */}
+            {sendSuccess === true && (
+              <p className="text-green-500 text-center mt-4">
+                Your question has been sent successfully!
+              </p>
+            )}
+            {sendSuccess === false && (
+              <p className="text-red-500 text-center mt-4">
+                Failed to send your question. Please try again.
+              </p>
+            )}
+          </form>
         </div>
       </div>
     </div>
