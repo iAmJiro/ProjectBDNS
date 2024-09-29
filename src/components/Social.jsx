@@ -103,20 +103,25 @@ const Social = () => {
           </Link>
         </div>
 
-        <div>
+        <div className="sm:ml-0 ml-8 flex-col flex">
           <h2 className="text-base font-semibold leading-4">Support</h2>
-          <p className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer">
+            <Link
+              onClick={scrollToTop}
+              to="/Privacy"
+              className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
+            >
             Privacy policy
-          </p>
-          <Link
-            onClick={scrollToTop}
-            to="/terms"
-            className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
-          >
-            Terms of service
-          </Link>
+            </Link>
 
+            <Link
+              onClick={scrollToTop}
+              to="/terms"
+              className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
+            >
+              Terms of service
+            </Link>
         </div>
+
         <div>
           <img
             src="./logo-removebg-preview.png"

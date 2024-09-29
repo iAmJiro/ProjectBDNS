@@ -8,15 +8,15 @@ const textVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-function TermsOfService() {
+function PrivacyPolicy() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="motherdiv bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
       <Navbar />
       <motion.div
-        className="termsofservicediv container mx-auto px-4"
+        className="privacyPolicyDiv container mx-auto px-4"
         ref={ref}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -24,7 +24,7 @@ function TermsOfService() {
       >
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-5xl text-center f-m-w font-bold">
-            Terms of Service
+            Privacy Policy
           </h1>
         </div>
 
@@ -35,30 +35,37 @@ function TermsOfService() {
                 1. Introduction
               </h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
-                Welcome to Rainbird Cakes! These terms and conditions outline the rules and regulations for the use of [ ], located at [ ].
+                Welcome to Rainbird Cakes! This privacy policy explains how we collect, use, and protect your personal information.
               </p>
 
               <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                2. Account Responsibility
+                2. Information We Collect
               </h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
-                When you create an account with us, you must provide accurate, complete, and current information at all times.
+                We collect information that you provide directly to us, such as when you create an account, place an order, or contact us for customer support.
               </p>
             </div>
 
             <div className="lg:w-1/2 lg:ml-8">
               <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                3. Services Provided
+                3. How We Use Your Information
               </h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
-                We are committed to providing our services as described, but we reserve the right to modify or discontinue the service at any time.
+                We use your information to provide and improve our services, process transactions, and communicate with you regarding your orders.
               </p>
 
               <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                4. User Conduct
+                4. Data Security
               </h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
-                You agree not to misuse or interfere with the service. Any illegal activities may result in account termination.
+                We take reasonable measures to protect your information from unauthorized access, disclosure, alteration, or destruction.
+              </p>
+
+              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
+                5. Changes to This Policy
+              </h2>
+              <p className="text-base f-m-m leading-loose mt-2 text-justify">
+                We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on our website.
               </p>
             </div>
           </div>
@@ -68,4 +75,4 @@ function TermsOfService() {
   );
 }
 
-export default TermsOfService;
+export default PrivacyPolicy;

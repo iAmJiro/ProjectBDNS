@@ -23,6 +23,7 @@ import ImageList from "./Admin/Store/ImageList.jsx";
 import SocialTest from "./Components/SocialTest.jsx";
 import FAQ2 from "./Components/FAQ2.jsx";
 import TermsOfService from "./Components/TermsOfService.jsx";
+import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -38,7 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/Gallery" element={<ImageList />} />
         <Route path="/terms" element={<TermsOfService />} />
-
+        <Route path="/Privacy" element={<PrivacyPolicy />} />
       </Routes>
       <Social />
     </Router>
