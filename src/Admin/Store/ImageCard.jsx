@@ -72,6 +72,13 @@ export default function ImageCard({ imageId, imageUrls, alt, name, description, 
             });
     };
 
+    const handleCancel = () => {
+        setEditName(name);
+        setEditDescription(description);
+        setEditPrice(price);
+        setIsEditing(false);
+    };
+
     return (
         <div className="max-w-sm bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
             <div className="carousel w-full relative">
@@ -104,12 +111,22 @@ export default function ImageCard({ imageId, imageUrls, alt, name, description, 
                             value={editPrice}
                             onChange={(e) => setEditPrice(e.target.value)}
                         />
-                        <button
-                            onClick={handleSave}
-                            className="mt-4 w-full inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300"
-                        >
-                            Save
-                        </button>
+                        
+                        <div className="flex justify-between mt-4">
+                            
+                            <button
+                                onClick={handleCancel}
+                                className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-white bg-gray-500 rounded-lg hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleSave}
+                                className="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300"
+                            >
+                                Save
+                            </button>
+                        </div>
                     </>
                 ) : (
                     <>

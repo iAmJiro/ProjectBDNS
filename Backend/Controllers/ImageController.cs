@@ -43,6 +43,26 @@ namespace Backend.Controllers
             return numRowsChanged == 1;
         }
 
+        [HttpPut, Route("edit/{id}")]
+        [Authorize("IsAdmin")]
+        public ActionResult<bool> EditItem(int id, [FromBody] UpdateImageRequest request)
+        {
+            var itemToEdit = db.Images.Find(id);
+            if (itemToEdit == null)
+            {
+                return NotFound(); 
+            }
+
+            itemToEdit.Name = request.Name;
+            itemToEdit.Description = request.Description;
+            itemToEdit.Price = request.Price;
+
+            var numRowsChanged = db.SaveChanges();
+
+            return Ok(numRowsChanged == 1); 
+        }
+
+
         // api/Item/delete/1
         [HttpDelete, Route("delete/{id}")]
         [Authorize("IsAdmin")]
@@ -64,9 +84,9 @@ namespace Backend.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded");
 
-            
+
             var frontendUploadsFolder = Path.Combine("C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\public", "uploads");
-            Directory.CreateDirectory(frontendUploadsFolder); 
+            Directory.CreateDirectory(frontendUploadsFolder);
 
             //save file
             var fileName = Path.GetFileName(file.FileName);

@@ -13,6 +13,9 @@ const FAQ2 = () => {
   const [question, setQuestion] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [sendSuccess, setSendSuccess] = useState(null);
+  const [editIndex, setEditIndex] = useState(null); // New state to track editing FAQ
+  const [editQuestion, setEditQuestion] = useState("");
+  const [editAnswer, setEditAnswer] = useState("");
 
   const SERVICE_ID = "service_ujmuuix";
   const TEMPLATE_ID = "template_vcro2nj";
@@ -44,10 +47,11 @@ const FAQ2 = () => {
 
   const handleDelete = async (faqId) => {
     try {
-      const response = await fetch(`your_backend_url/api/faq/${faqId}`, {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/${faqId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          "Content-Type": "application/json",
         },
       });
 
@@ -60,6 +64,39 @@ const FAQ2 = () => {
       setFaqs(faqs.filter((faq) => faq.faqId !== faqId));
     } catch (error) {
       console.error("Error deleting FAQ:", error);
+    }
+  };
+
+  const handleEdit = (index) => {
+    setEditIndex(index);
+    setEditQuestion(faqs[index].faqQuestion);
+    setEditAnswer(faqs[index].faqAnswer);
+  };
+
+  const handleSaveEdit = async (faqId) => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/edit/${faqId}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ faqQuestion: editQuestion, faqAnswer: editAnswer }), // Correct request body format
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Failed to update FAQ:", errorText);
+        return;
+      }
+
+      // Update the FAQ list locally
+      const updatedFaqs = [...faqs];
+      updatedFaqs[editIndex] = { ...updatedFaqs[editIndex], faqQuestion: editQuestion, faqAnswer: editAnswer };
+      setFaqs(updatedFaqs);
+      setEditIndex(null); // Exit editing mode
+    } catch (error) {
+      console.error("Error updating FAQ:", error);
     }
   };
 
@@ -119,7 +156,7 @@ const FAQ2 = () => {
           <div className="flex justify-center mt-8">
             <button
               onClick={() => setIsFormOpen(true)}
-              className="btn bg-green-500 text-white px-4 py-2 rounded-lg"
+              className="btn bg-green-500 text-white text-xl px-4 py-2 rounded-lg"
             >
               Create New FAQ
             </button>
@@ -143,75 +180,109 @@ const FAQ2 = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               />
-              <motion.div
-                className="w-full md:px-6"
-                variants={questionVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex">
-                  {sessionStorage.getItem("userGroup") === "1" && (
-                    <button
-                      onClick={() => handleDelete(faq.faqId)}
-                      className="mt-4 bg-red-500 text-white mr-5 px-3 py-1 rounded-lg"
-                    >
-                      Delete
-                    </button>
-                  )}
-                  <div className="flex justify-between items-center w-full">
-                    <div className="flex">
-                      <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
-                        <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
-                          Q{index + 1}.
-                        </span>
-                        {faq.faqQuestion}
-                      </p>
-                    </div>
-                    <button
-                      aria-label="toggler"
-                      className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
-                      onClick={() => toggleOpen(index)}
-                    >
-                      <svg
-                        className={`transform ${
-                          openIndexes[index] ? "rotate-180" : "rotate-0"
-                        }`}
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6 9L12 15L18 9"
-                          stroke="black"
-                          strokeWidth="1.33333"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+              {editIndex === index ? (
+                <div>
+                  <input
+                    type="text"
+                    value={editQuestion}
+                    onChange={(e) => setEditQuestion(e.target.value)}
+                    className="w-full border p-2 mb-4"
+                  />
+                  <textarea
+                    value={editAnswer}
+                    onChange={(e) => setEditAnswer(e.target.value)}
+                    className="w-full border p-2 mb-4"
+                  />
+                  
+                  <button
+                    onClick={() => setEditIndex(null)}
+                    className="bg-gray-500 text-white px-4 py-2 rounded-lg "
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={() => handleSaveEdit(faq.faqId)}
+                    className="bg-yellow-500 text-white px-4 py-2 ml-4 rounded-lg"
+                  >
+                    Save
+                  </button>
                 </div>
+              ) : (
+                <motion.div
+                  className="w-full md:px-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="flex">
+                    {sessionStorage.getItem("userGroup") === "1" && (
+                      <>
+                        <button
+                          onClick={() => handleDelete(faq.faqId)}
+                          className="mt-4 bg-red-500 text-lg text-white mr-5 px-3 py-1 rounded-lg"
+                        >
+                          Delete
+                        </button>
+                        <button
+                          onClick={() => handleEdit(index)}
+                          className="mt-4 bg-yellow-500 text-lg text-white mr-5 px-3 py-1 rounded-lg"
+                        >
+                          Edit
+                        </button>
+                      </>
+                    )}
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex">
+                        <p className="flex justify-center items-center font-medium text-base leading-6 lg:leading-4 text-gray-800 dark:text-white">
+                          <span className="lg:mr-6 mr-4 lg:text-2xl md:text-xl text-lg leading-6 md:leading-5 lg:leading-4 font-semibold text-gray-800 dark:text-white">
+                            Q{index + 1}.
+                          </span>
+                          {faq.faqQuestion}
+                        </p>
+                      </div>
+                      <button
+                        aria-label="toggler"
+                        className="focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white rounded-xl"
+                        onClick={() => toggleOpen(index)}
+                      >
+                        <svg
+                          className={`transform ${openIndexes[index] ? "rotate-180" : "rotate-0"}`}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6 9L12 15L18 9"
+                            stroke="black"
+                            strokeWidth="1.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
 
-                <AnimatePresence>
-                  {openIndexes[index] && (
-                    <motion.div
-                      id="menu"
-                      className="mt-6 w-full"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
-                        {faq.faqAnswer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                  <AnimatePresence>
+                    {openIndexes[index] && (
+                      <motion.div
+                        id="menu"
+                        className="mt-6 w-full"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p className="text-base leading-6 text-gray-800 dark:text-white font-normal">
+                          {faq.faqAnswer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              )}
             </div>
           ))}
         </div>
@@ -234,8 +305,8 @@ const FAQ2 = () => {
               </label>
               <input
                 type="email"
-                id="email" // Corrected ID
-                name="email" // Corrected name to match EmailJS template
+                id="email"
+                name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -250,8 +321,8 @@ const FAQ2 = () => {
                 Your Question
               </label>
               <textarea
-                id="question" // Corrected ID
-                name="question" // Corrected name to match EmailJS template
+                id="question"
+                name="question"
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 required
@@ -261,16 +332,13 @@ const FAQ2 = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className={`px-4 py-2 rounded-lg bg-purple-500 text-white ${
-                  isSending ? "opacity-50" : ""
-                }`}
+                className={`px-4 py-2 rounded-lg bg-purple-500 text-white ${isSending ? "opacity-50" : ""}`}
                 disabled={isSending}
               >
                 {isSending ? "Sending..." : "Submit"}
               </button>
             </div>
 
-            {/* Feedback message */}
             {sendSuccess === true && (
               <p className="text-green-500 text-center mt-4">
                 Your question has been sent successfully!
