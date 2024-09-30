@@ -91,7 +91,7 @@ function OrderInstructions() {
               />
               <img
                 className="w-80 sm:w-auto lg:hidden"
-                src="https://i.ibb.co/QvxmJjB/olena-sergienko-gx-KL334b-UK4-unsplash-1-1.png"
+                src="453015123_18415746832078691_5862190502815762232_n (1) (1).jpg"
                 alt="sofa"
               />
             </div>
@@ -104,7 +104,7 @@ function OrderInstructions() {
                 />
                 <img
                   className="w-80 sm:w-auto lg:hidden"
-                  src="https://i.ibb.co/r0rvcCh/behzad-ghaffarian-nh-Wg-ZNV85-LQ-unsplash-1-1-1.png"
+                  src="381160396_155502677615301_1802941123642081612_n (1).jpg"
                   alt="chairs"
                 />
               </div>
@@ -116,7 +116,7 @@ function OrderInstructions() {
                 />
                 <img
                   className="w-80 sm:w-auto lg:hidden"
-                  src="https://i.ibb.co/0BFt400/nirzar-pangarkar-Csw-Kf-D546-Z8-unsplash-2.png"
+                  src="369094230_134746813024221_1337004492530768028_n (1).jpg"
                   alt="chairs"
                 />
               </div>
