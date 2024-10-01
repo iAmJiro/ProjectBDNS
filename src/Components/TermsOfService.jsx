@@ -29,8 +29,8 @@ function TermsOfService() {
         </div>
 
         <div className="pt-14 xl:px-0 px-4">
-          <div className="w-full lg:flex gap-6">
-            <div className="lg:w-1/2">
+          <div className="w-full lg:flex gap-8">
+            <div className="lg:w-1/2 flex flex-col">
               <h2 className="f-m-m text-2xl font-semibold leading-7">
                 1. Introduction
               </h2>
@@ -46,8 +46,8 @@ function TermsOfService() {
               </p>
             </div>
 
-            <div className="lg:w-1/2 lg:ml-8">
-              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
+            <div className="lg:w-1/2 lg:ml-8 flex flex-col">
+              <h2 className="f-m-m text-2xl font-semibold leading-7">
                 3. Services Provided
               </h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
