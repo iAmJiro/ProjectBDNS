@@ -37,7 +37,7 @@ function Forms() {
   };
 
   return (
-    <div className="isolate bg-white dark:bg-gray-900">
+    <div className="isolate bg-white dark:bg-gray-900 px-5">
       <Navbar />
 
       <div
