@@ -13,7 +13,7 @@ function PrivacyPolicy() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+    <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white min-h-screen flex flex-col items-center justify-center">
       <Navbar />
       <motion.div
         className="privacyPolicyDiv container mx-auto px-4"
@@ -23,47 +23,35 @@ function PrivacyPolicy() {
         variants={textVariants}
       >
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-5xl text-center f-m-w font-bold">
-            Privacy Policy
-          </h1>
+          <h1 className="text-5xl text-center f-m-w font-bold">Privacy Policy</h1>
         </div>
 
         <div className="pt-14 xl:px-0 px-4">
-          <div className="w-full lg:flex gap-8">
-            <div className="lg:w-1/2">
-              <h2 className="f-m-m text-2xl font-semibold leading-7">
-                1. Introduction
-              </h2>
+          <div className="w-full flex flex-col gap-8 items-center justify-center"> {/* 垂直居中 */}
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <h2 className="f-m-m text-2xl font-semibold leading-7 text-center">1. Introduction</h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
                 Welcome to Rainbird Cakes! This privacy policy explains how we collect, use, and protect your personal information.
               </p>
 
-              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                2. Information We Collect
-              </h2>
+              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8 text-center">2. Information We Collect</h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
                 We collect information that you provide directly to us, such as when you create an account, place an order, or contact us for customer support.
               </p>
             </div>
 
-            <div className="lg:w-1/2 lg:ml-8">
-              <h2 className="f-m-m text-2xl font-semibold leading-7">
-                3. How We Use Your Information
-              </h2>
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <h2 className="f-m-m text-2xl font-semibold leading-7 text-center">3. How We Use Your Information</h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
                 We use your information to provide and improve our services, process transactions, and communicate with you regarding your orders.
               </p>
 
-              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                4. Data Security
-              </h2>
+              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8 text-center">4. Data Security</h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
                 We take reasonable measures to protect your information from unauthorized access, disclosure, alteration, or destruction.
               </p>
 
-              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8">
-                5. Changes to This Policy
-              </h2>
+              <h2 className="f-m-m text-2xl font-semibold leading-7 mt-8 text-center">5. Changes to This Policy</h2>
               <p className="text-base f-m-m leading-loose mt-2 text-justify">
                 We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on our website.
               </p>
