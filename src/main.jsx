@@ -12,6 +12,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+
 import { AnimatePresence } from "framer-motion";
 import Social from "./Components/Social.jsx";
 import Testimonials from "./Components/Testimonials.jsx";
@@ -24,7 +25,6 @@ import SocialTest from "./Components/SocialTest.jsx";
 import FAQ2 from "./Components/FAQ2.jsx";
 import TermsOfService from "./Components/TermsOfService.jsx";
 import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS/">
