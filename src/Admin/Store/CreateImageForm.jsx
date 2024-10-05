@@ -79,14 +79,16 @@ const CreateImageForm = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-md w-1/3">
-        <h2 className="text-2xl font-bold mb-4">Create New Image</h2>
-
-        <div {...getRootProps()} className="p-4 border-2 border-dashed rounded mb-4">
+        <h2 className="text-2xl font-bold mb-4">Create New Product</h2>
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            Images
+          </label>
+        <div {...getRootProps()} className="p-4 border-2 border-dashed rounded">
           <input {...getInputProps()} />
           {isUploading ? (
             <p>Uploading...</p>
           ) : (
-            <p>Drag 'n' drop some files here, or click to select files</p>
+            <p>Drag 'n' drop some images here, or click to select images</p>
           )}
         </div>
         {uploadError && <p className="text-red-500">{uploadError}</p>}
@@ -107,7 +109,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             type="text"
             id="name"
             ref={imageName}
-            placeholder="Image Name"
+            placeholder="Product Name"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
@@ -120,7 +122,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             type="text"
             id="description"
             ref={imageDescription}
-            placeholder="Image Description"
+            placeholder="Product Description"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
@@ -133,7 +135,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             type="number"
             id="price"
             ref={imagePrice}
-            placeholder="Image Price"
+            placeholder="Product Price"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
@@ -148,7 +150,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           >
-            <option value="">Select Category</option>
+            <option value="">Click to Select Category</option>
             <option value="1">Cake</option>
             <option value="2">Cupcake</option>
           </select>
@@ -166,7 +168,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             onClick={SubmitFormHandler}
             className="bg-green-500 text-white px-4 py-2 rounded"
           >
-            Create Image
+            Create Product
           </button>
         </div>
       </div>
