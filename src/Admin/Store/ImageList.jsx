@@ -63,7 +63,7 @@ export default function ImageList() {
               className="btn text-2xl p-2 rounded hover:text-black bg-green-500 text-white my-4"
               onClick={() => setIsFormOpen(true)}
             >
-              Create New Image
+              Add new Product
             </button>
           )}
         </div>
