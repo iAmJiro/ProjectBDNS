@@ -35,12 +35,12 @@ function Testimonials() {
                     I can rely on your agency Thank you for all your help-I will
                     be recommending you to everyone
                   </p>
-                  <div className="absolute bottom-0 -mb-4 ml-10">
+                  {/* <div className="absolute bottom-0 -mb-4 ml-10">
                     <img
                       src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg2.svg"
                       alt="sharp"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div className="bg-white border rounded-md border-gray-200 relative sm:p-10 p-6">
                   <div>
@@ -54,12 +54,6 @@ function Testimonials() {
                     I can rely on your agency Thank you for all your help-I will
                     be recommending you to everyone
                   </p>
-                  <div className="absolute bottom-0 -mb-4 ml-10">
-                    <img
-                      src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg2.svg"
-                      alt="sharp"
-                    />
-                  </div>
                 </div>
               </div>
               <div className="lg:w-1/2 lg:mt-0 mt-16">
@@ -75,12 +69,6 @@ function Testimonials() {
                     I can rely on your agency Thank you for all your help-I will
                     be recommending you to everyone
                   </p>
-                  <div className="absolute bottom-0 -mb-4 ml-10">
-                    <img
-                      src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg2.svg"
-                      alt="sharp"
-                    />
-                  </div>
                 </div>
                 <div className="bg-white border rounded-md border-gray-200 relative sm:p-10 p-6">
                   <div>
@@ -94,12 +82,6 @@ function Testimonials() {
                     I can rely on your agency Thank you for all your help-I will
                     be recommending you to everyone
                   </p>
-                  <div className="absolute bottom-0 -mb-4 ml-10">
-                    <img
-                      src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg2.svg"
-                      alt="sharp"
-                    />
-                  </div>
                 </div>
               </div>
             </div>

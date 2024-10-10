@@ -32,7 +32,7 @@ function HomeNav() {
             alt="Rainbird Cakes Logo"
           />
           <span className="websitename self-center text-2xl font-semibold whitespace-nowrap text-white ml-2">
-            Rainbird Cakes
+            Rainbirds Cakes
           </span>
         </div>
 

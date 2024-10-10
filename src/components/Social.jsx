@@ -96,6 +96,13 @@ const Social = () => {
 
           <Link
             onClick={scrollToTop}
+            to="/FAQ2"
+            className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
+          >
+            FAQ
+          </Link>
+          <Link
+            onClick={scrollToTop}
             to="/Testimonials"
             className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
           >
@@ -105,21 +112,21 @@ const Social = () => {
 
         <div className="sm:ml-0 ml-8 flex-col flex">
           <h2 className="text-base font-semibold leading-4">Support</h2>
-            <Link
-              onClick={scrollToTop}
-              to="/Privacy"
-              className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
-            >
+          <Link
+            onClick={scrollToTop}
+            to="/Privacy"
+            className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
+          >
             Privacy policy
-            </Link>
+          </Link>
 
-            <Link
-              onClick={scrollToTop}
-              to="/terms"
-              className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
-            >
-              Terms of service
-            </Link>
+          {/* <Link
+            onClick={scrollToTop}
+            to="/terms"
+            className="hover:text-gray-500 dark:hover:text-gray-300 text-base leading-4 mt-6 cursor-pointer"
+          >
+            Terms of service
+          </Link> */}
         </div>
 
         <div>

@@ -33,7 +33,7 @@ export default function Navbar() {
               alt="Flowbite Logo"
             />
             <span className="heading2text self-center md:text-2xl font-semibold whitespace-nowrap text-black dark:text-white ml-2">
-              Rainbird Cakes
+              Rainbirds Cakes
             </span>
           </div>
 
