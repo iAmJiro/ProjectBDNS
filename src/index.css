@@ -40,7 +40,8 @@
   -webkit-text-stroke-color: black;
 }
 .headercss {
-  background-image: url("cakedarken.png");
+  /* background-image: url("cakedarken.png"); */
+  background-color: #f5f3c2;
   background-size: cover;
   height: 100vh;
   display: grid;
