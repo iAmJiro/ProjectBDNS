@@ -34,7 +34,7 @@ function Home() {
           <h1 className="landingtext text-white text-center">
             Beauty meets flavour
           </h1>
-          <motion.div className="cakediv" variants={imageVariants}>
+          {/* <motion.div className="cakediv" variants={imageVariants}>
             <img className="cakepicture" src="cakepicture.png" alt="" />
           </motion.div>
           <motion.div className="cupcakediv" variants={imageVariants}>
@@ -42,7 +42,7 @@ function Home() {
           </motion.div>
           <motion.div className="cookiediv" variants={imageVariants}>
             <img className="cookiepicture" src="cakepicture2.png" alt="" />
-          </motion.div>
+          </motion.div> */}
         </motion.header>
       </motion.div>
       <GalleryHome />

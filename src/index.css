@@ -41,13 +41,15 @@
 }
 .headercss {
   /* background-image: url("cakedarken.png"); */
-  background-color: #f5f3c2;
+  background-image: url("homeremade2.png");
+  /* background-color: #f5f3c2; */
   background-size: cover;
   height: 100vh;
   display: grid;
-  grid-template-rows: 0.5fr 0.8fr 0.9fr;
+  grid-template-rows: 0.5fr 0.8fr 1fr 0.9fr;
   grid-template-areas:
     "navcss navcss navcss"
+    ". . ."
     "landingtext landingtext landingtext"
     "cakediv cupcakediv cookiediv";
 }
@@ -108,7 +110,9 @@ a {
   font-family: "Roboto Serif", serif;
   font-style: italic;
   font-size: 100px;
-  color: #ebcaff;
+  /* color: #ebcaff; */
+  font-weight: 500;
+  color: white;
 }
 
 @media only screen and (max-width: 768px) {
