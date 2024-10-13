@@ -80,7 +80,7 @@ export default function ImageCard({ imageId, imageUrls, alt, name, description, 
     };
 
     return (
-        <div className="max-w-sm bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+        <div className="max-w-sm bg-white dark:bg-gray-700 border border-gray-300 rounded-lg shadow-lg overflow-hidden">
             <div className="carousel w-full relative">
                 <div className="carousel-item w-full">
                     <img src={imageUrls[currentIndex]} alt={alt || name} className="w-full h-48 object-cover" />
@@ -130,9 +130,9 @@ export default function ImageCard({ imageId, imageUrls, alt, name, description, 
                     </>
                 ) : (
                     <>
-                        <h5 className="text-2xl font-bold text-gray-900 mb-2 text-center">{name}</h5>
-                        <p className="text-gray-700 text-sm mb-3 text-center">{description}</p>
-                        <p className="text-lg font-semibold text-center text-gray-900">
+                        <h5 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">{name}</h5>
+                        <p className="text-gray-700 text-sm mb-3 dark:text-gray-300 text-center">{description}</p>
+                        <p className="text-lg font-semibold dark:text-white text-center text-gray-900">
                             ${typeof price === 'number' ? price.toFixed(2) : parseFloat(price).toFixed(2)}
                         </p>
                     </>

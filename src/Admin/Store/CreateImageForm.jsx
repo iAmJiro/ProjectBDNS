@@ -78,7 +78,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-md w-1/3">
+      <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md w-1/3">
         <h2 className="text-2xl font-bold mb-4">Create New Product</h2>
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Images
