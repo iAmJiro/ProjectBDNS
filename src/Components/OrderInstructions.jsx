@@ -90,7 +90,7 @@ function OrderInstructions() {
                 alt="sofa"
               />
               <img
-                className="w-80 sm:w-auto lg:hidden"
+                className=" w-60 sm:w-auto lg:hidden"
                 src="453015123_18415746832078691_5862190502815762232_n (1) (1).jpg"
                 alt="sofa"
               />
@@ -102,11 +102,11 @@ function OrderInstructions() {
                   src="381160396_155502677615301_1802941123642081612_n (1).jpg"
                   alt="chairs"
                 />
-                <img
+                {/* <img
                   className="w-80 sm:w-auto lg:hidden"
                   src="381160396_155502677615301_1802941123642081612_n (1).jpg"
                   alt="chairs"
-                />
+                /> */}
               </div>
               <div>
                 <img
@@ -114,11 +114,11 @@ function OrderInstructions() {
                   src="369094230_134746813024221_1337004492530768028_n (1).jpg"
                   alt="chairs"
                 />
-                <img
+                {/* <img
                   className="w-80 sm:w-auto lg:hidden"
                   src="369094230_134746813024221_1337004492530768028_n (1).jpg"
                   alt="chairs"
-                />
+                /> */}
               </div>
             </div>
           </div>
