@@ -60,31 +60,31 @@ function HomeNav() {
         <div className="hidden md:flex md:flex-1 md:justify-center space-x-8">
           <Link
             to="/"
-            className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            className="block py-2 px-3 text-white rounded hover:text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            className="block py-2 px-3 text-white rounded hover:text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             About
           </Link>
           <Link
             to="/Forms"
-            className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            className="block py-2 px-3 text-white rounded hover:text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             Orders
           </Link>
           <Link
             to="/Gallery"
-            className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            className="block py-2 px-3 text-white rounded hover:text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             Products
           </Link>
           <Link
             to="/FAQ2"
-            className="block py-2 px-3 text-white rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+            className="block py-2 px-3 text-white rounded hover:text-black hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           >
             FAQ
           </Link>
