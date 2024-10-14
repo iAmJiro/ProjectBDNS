@@ -12,6 +12,31 @@ function classNames(...classes) {
 function Forms() {
   const [agreed, setAgreed] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [dragging, setDragging] = useState(false);
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      setSelectedFile(e.dataTransfer.files[0]);
+      e.dataTransfer.clearData(); 
+    }
+  };
+
 
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
@@ -20,6 +45,11 @@ function Forms() {
       e.target.value = "";
     }
   };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+  
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -415,41 +445,55 @@ function Forms() {
             >
               Cake photo
             </label>
-            <div className="bg-white mt-2 dark:bg-slate-800 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-              <div className="text-center">
-                <svg
-                  className="mx-auto h-12 w-12 text-gray-300"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
+            <div
+                className={`bg-white mt-2 dark:bg-slate-800 flex justify-center rounded-lg border border-dashed px-6 py-10 ${dragging ? "border-purple-500" : "border-gray-900/25"}`}
+                onDragOver={handleDragOver} 
+                onDragLeave={handleDragLeave} 
+                onDrop={handleDrop}
+            >
+            ``<div className="text-center">
+              <svg
+                className="mx-auto h-12 w-12 text-gray-300"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12 2a5 5 0 00-5 5v1.757a.75.75 0 01-.22.53l-4.5 4.5a.75.75 0 001.06 1.06L8 10.561V19a3 3 0 003 3h7a3 3 0 003-3V9a5 5 0 00-5-5h-1a.75.75 0 010-1.5h1a6.5 6.5 0 016.5 6.5v10a4.5 4.5 0 01-4.5 4.5h-7A4.5 4.5 0 017 19v-8.439l-4.72 4.719a2.25 2.25 0 01-3.182-3.182l4.5-4.5a2.25 2.25 0 01.659-1.415V7a6.5 6.5 0 1113 0h-1a.75.75 0 010 1.5h1a5 5 0 00-5-5zm-2.72 8.72a.75.75 0 011.06 0L11 10.439V15a.75.75 0 01-1.5 0v-3.56l-2.22 2.22a.75.75 0 01-1.06-1.06l4-4.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+
+              <div className="mt-4 flex text-sm leading-6 dark:text-white text-gray-600">
+                <label
+                  htmlFor="attachment"
+                  className="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2a5 5 0 00-5 5v1.757a.75.75 0 01-.22.53l-4.5 4.5a.75.75 0 001.06 1.06L8 10.561V19a3 3 0 003 3h7a3 3 0 003-3V9a5 5 0 00-5-5h-1a.75.75 0 010-1.5h1a6.5 6.5 0 016.5 6.5v10a4.5 4.5 0 01-4.5 4.5h-7A4.5 4.5 0 017 19v-8.439l-4.72 4.719a2.25 2.25 0 01-3.182-3.182l4.5-4.5a2.25 2.25 0 01.659-1.415V7a6.5 6.5 0 1113 0h-1a.75.75 0 010 1.5h1a5 5 0 00-5-5zm-2.72 8.72a.75.75 0 011.06 0L11 10.439V15a.75.75 0 01-1.5 0v-3.56l-2.22 2.22a.75.75 0 01-1.06-1.06l4-4.5z"
-                    clipRule="evenodd"
+                  <span>Upload a file</span>
+                  <input
+                    id="attachment"
+                    name="image"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="sr-only"
                   />
-                </svg>
-                <div className="mt-4 flex text-sm leading-6 dark:text-white text-gray-600 ">
-                  <label
-                    htmlFor="attachment"
-                    className="relative cursor-pointer  rounded-md  font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                  >
-                    <span>Upload a file</span>
-                    <input
-                      id="attachment"
-                      name="image"
-                      type="file"
-                      className="sr-only"
-                    />
-                  </label>
-                  <p className="pl-1">or drag and drop</p>
-                </div>
-                <p className="text-xs leading-5 text-gray-600">
-                  PNG, JPG, GIF up to 10MB
-                </p>
+                </label>
+                <p className="pl-1">or drag and drop</p>
               </div>
+              <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+
+              {selectedFile && (
+                <div className="mt-2 text-sm text-gray-600">
+                  Selected file: {selectedFile.name}
+                </div>
+              )}
             </div>
+          </div>
+
           </motion.div>
+
         </div>
 
         <motion.div

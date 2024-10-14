@@ -110,6 +110,14 @@ const Social = () => {
           </Link>
         </div>
 
+        <div>
+          <img
+            src="./logo-removebg-preview.png"
+            className="w-32"
+            alt="Rainbird Cakes Logo"
+          />
+        </div>
+
         <div className="sm:ml-0 ml-8 flex-col flex">
           <h2 className="text-base font-semibold leading-4">Support</h2>
           <Link
@@ -129,13 +137,7 @@ const Social = () => {
           </Link> */}
         </div>
 
-        <div>
-          <img
-            src="./logo-removebg-preview.png"
-            className="websitelogo h-48"
-            alt="Rainbird Cakes Logo"
-          />
-        </div>
+      
       </div>
     </div>
   );
