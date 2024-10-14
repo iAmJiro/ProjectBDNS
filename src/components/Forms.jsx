@@ -13,6 +13,14 @@ function Forms() {
   const [agreed, setAgreed] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
 
+  const handleDateChange = (e) => {
+    const day = new Date(e.target.value).getDay();
+    if (day === 1 || day === 6) { 
+      alert('Closed on Saturday and Monday');
+      e.target.value = ''; 
+    }
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
     // email used is bryantcavinta24@gmail.com
@@ -35,6 +43,8 @@ function Forms() {
 
     e.target.reset();
   };
+
+  
 
   return (
     <div className="isolate bg-white dark:bg-gray-900 px-5">
@@ -240,13 +250,17 @@ function Forms() {
             >
               Event date
             </label>
-            <div className="mt-2.5">
+            <div className="flex items-center mt-2.5">
               <input
                 type="date"
                 name="eventd"
-                id="eventd"
-                className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                id="eventd"           
+                className="bg-white dark:bg-slate-800 dark:text-white block w-1/2 rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                onChange={handleDateChange}
               />
+              <span className="ml-4 text-sm text-gray-500 dark:text-white">
+                We are closed on Saturday and Monday
+              </span>
             </div>
           </motion.div>
 
