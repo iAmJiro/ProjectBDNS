@@ -210,7 +210,9 @@ function Forms() {
                 id="eventt"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="" disabled selected hidden>Choose an event type</option>
+                <option value="" disabled selected hidden>
+                  Choose an event type
+                </option>
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
                 <option value="Wedding">Wedding</option>
@@ -223,7 +225,6 @@ function Forms() {
                 <option value="Just Because">Just Because</option>
                 <option value="Other">Other</option>
               </select>
-
             </div>
           </motion.div>
 
@@ -244,7 +245,7 @@ function Forms() {
                 type="date"
                 name="eventd"
                 id="eventd"
-                className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </motion.div>
@@ -290,22 +291,26 @@ function Forms() {
                 id="eventt"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="" disabled selected hidden>Choose a cake flavour</option>
+                <option value="" disabled selected hidden>
+                  Choose a cake flavour
+                </option>
                 <option value="Vanilla">Vanilla</option>
                 <option value="Chocolate">Chocolate</option>
                 <option value="Banana">Banana</option>
                 <option value="Carrot (DF)">Carrot (DF)</option>
                 <option value="Lemon">Lemon</option>
-                <option value="Raspberry white chocolate">Raspberry white chocolate (+$15)</option>
+                <option value="Raspberry white chocolate">
+                  Raspberry white chocolate (+$15)
+                </option>
                 <option value="Rainbow">Rainbow (+$10)</option>
                 <option value="Red Velvet">Red Velvet</option>
                 <option value="DF Chocolate">DF Chocolate</option>
                 <option value="DF Vanilla">DF Vanilla</option>
                 <option value="GF Vanilla">GF Vanilla</option>
-                <option value="GF chocolate almond">GF chocolate almond (+$15)</option>
-
+                <option value="GF chocolate almond">
+                  GF chocolate almond (+$15)
+                </option>
               </select>
-
             </div>
           </motion.div>
           <motion.div
@@ -326,8 +331,12 @@ function Forms() {
                 id="filling"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="" disabled selected hidden>Choose a cake filling</option>
-                <option value="Milk chocolate ganache">Milk chocolate ganache</option>
+                <option value="" disabled selected hidden>
+                  Choose a cake filling
+                </option>
+                <option value="Milk chocolate ganache">
+                  Milk chocolate ganache
+                </option>
                 <option value="Salted caramel">Salted caramel</option>
                 <option value="Lemon curd">Lemon curd</option>
                 <option value="Cream cheese">Cream cheese</option>
@@ -336,10 +345,7 @@ function Forms() {
                 <option value="White choc ganache">White choc ganache</option>
                 <option value="Raspberry jam">Raspberry jam</option>
                 <option value="Crushed oreo">Crushed oreo</option>
-
-
               </select>
-
             </div>
           </motion.div>
           <motion.div
