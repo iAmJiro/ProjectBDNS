@@ -33,7 +33,7 @@ function Forms() {
     setDragging(false);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       setSelectedFile(e.dataTransfer.files[0]);
-      e.dataTransfer.clearData(); // Clear the drag data
+      e.dataTransfer.clearData(); 
     }
   };
 
