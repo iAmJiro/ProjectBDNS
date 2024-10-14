@@ -12,6 +12,23 @@ function classNames(...classes) {
 function Forms() {
   const [agreed, setAgreed] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [dragging, setDragging] = useState(false);
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setDragging(false);
+    if(e.dataTransfer.files && e.dataTransfer.files.length > 0){
+      setSelectedFile(e.dataTransfer.files[0]);
+      e.dataTransfer.clearData();
+    }
+  };
+
 
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
@@ -20,6 +37,11 @@ function Forms() {
       e.target.value = ''; 
     }
   };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+  
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -445,6 +467,8 @@ function Forms() {
                       id="attachment"
                       name="image"
                       type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
                       className="sr-only"
                     />
                   </label>
@@ -453,9 +477,15 @@ function Forms() {
                 <p className="text-xs leading-5 text-gray-600">
                   PNG, JPG, GIF up to 10MB
                 </p>
+                {selectedFile && (
+                  <div className="mt-2 text-sm text-gray-600">
+                    Selected file: {selectedFile.name}
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
+
         </div>
 
         <motion.div
