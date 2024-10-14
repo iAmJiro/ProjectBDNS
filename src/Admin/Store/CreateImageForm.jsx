@@ -95,14 +95,14 @@ const CreateImageForm = ({ isOpen, onClose }) => {
 
         <div className="flex flex-wrap gap-2 mb-4">
           {uploadedImages.map((url, index) => (
-            <p key={index} className="text-gray-700">
+            <p key={index} className="text-gray-700 dark:text-white">
               {url.split('/').pop()} 
             </p>
           ))}
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label className="block text-gray-700 dark:text-white text-sm font-bold mb-2" htmlFor="name">
             Name
           </label>
           <input
@@ -110,12 +110,12 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             id="name"
             ref={imageName}
             placeholder="Product Name"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 dark:text-white text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+          <label className="block text-gray-700 dark:text-white text-sm font-bold mb-2" htmlFor="description">
             Description
           </label>
           <input
@@ -123,12 +123,12 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             id="description"
             ref={imageDescription}
             placeholder="Product Description"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
+          <label className="block text-gray-700 dark:text-white text-sm font-bold mb-2" htmlFor="price">
             Price
           </label>
           <input
@@ -136,18 +136,18 @@ const CreateImageForm = ({ isOpen, onClose }) => {
             id="price"
             ref={imagePrice}
             placeholder="Product Price"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="categoryId">
+          <label className="block text-gray-700 dark:text-white text-sm font-bold mb-2" htmlFor="categoryId">
             Category
           </label>
           <select
             id="categoryId"
             ref={categoryId}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline"
             required
           >
             <option value="">Click to Select Category</option>
