@@ -15,9 +15,9 @@ function Forms() {
 
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
-    if (day === 1 || day === 6) { 
-      alert('Closed on Saturday and Monday');
-      e.target.value = ''; 
+    if (day === 1 || day === 6) {
+      alert("Closed on Saturday and Monday");
+      e.target.value = "";
     }
   };
 
@@ -43,8 +43,6 @@ function Forms() {
 
     e.target.reset();
   };
-
-  
 
   return (
     <div className="isolate bg-white dark:bg-gray-900 px-5">
@@ -254,7 +252,7 @@ function Forms() {
               <input
                 type="date"
                 name="eventd"
-                id="eventd"           
+                id="eventd"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-1/2 rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                 onChange={handleDateChange}
               />
@@ -301,13 +299,11 @@ function Forms() {
             </label>
             <div className="mt-2.5">
               <select
-                name="eventt"
-                id="eventt"
+                name="flavour"
+                id="flavour"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="" disabled selected hidden>
-                  Choose a cake flavour
-                </option>
+                <option value="">Choose a cake flavour</option>
                 <option value="Vanilla">Vanilla</option>
                 <option value="Chocolate">Chocolate</option>
                 <option value="Banana">Banana</option>
@@ -345,9 +341,7 @@ function Forms() {
                 id="filling"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="" disabled selected hidden>
-                  Choose a cake filling
-                </option>
+                <option value="">Choose a cake filling</option>
                 <option value="Milk chocolate ganache">
                   Milk chocolate ganache
                 </option>
