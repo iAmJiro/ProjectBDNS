@@ -31,9 +31,13 @@ function Testimonials() {
                     />
                   </div>
                   <p className="text-base leading-6 text-gray-600 mt-4">
-                    When our designs need an expert opinion or approval, I know
-                    I can rely on your agency Thank you for all your help-I will
-                    be recommending you to everyone
+                    Emma created my beautiful dream wedding cake and cupcakes
+                    for me. It was great having a cupcake tester box to try all
+                    the flavours. We loved the carrot cake and lemon cake and
+                    they were an absolute hit with all our guests. Emma was very
+                    efficient and made the process so easy for us, I would
+                    highliy recommend her to anyone who is need of a special
+                    sweet treat, her talent is next level! ~Ellen
                   </p>
                   {/* <div className="absolute bottom-0 -mb-4 ml-10">
                     <img
@@ -65,9 +69,13 @@ function Testimonials() {
                     />
                   </div>
                   <p className="text-base leading-6 text-gray-600 mt-4">
-                    When our designs need an expert opinion or approval, I know
-                    I can rely on your agency Thank you for all your help-I will
-                    be recommending you to everyone
+                    I've ordered from Rainbird's cakes a couple times and
+                    already have her panned for future dates! I absolutely love
+                    the amount of care and detail that goes into each of her
+                    cakes, and she's so good at making them fit the vision you
+                    had planned but making it even better. Her cakes look
+                    absolutely beautiful, and also taste incredible. I will
+                    always recommend Rainbird's Cakes to anyone!
                   </p>
                 </div>
                 <div className="bg-white border rounded-md border-gray-200 relative sm:p-10 p-6">
