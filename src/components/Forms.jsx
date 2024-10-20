@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
 import imageCompression from "browser-image-compression";
 
-
 // Helper function for class names
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -37,49 +36,47 @@ function Forms() {
   //   setDragging(false);
   //   if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
   //     setSelectedFile(e.dataTransfer.files[0]);
-  //     e.dataTransfer.clearData(); 
+  //     e.dataTransfer.clearData();
   //   }
   // };
-  
+
   const handleFileCompression = async (file) => {
     try {
       const options = {
-        maxSizeMB: 0.3, 
-        maxWidthOrHeight: 600, 
+        maxSizeMB: 0.3,
+        maxWidthOrHeight: 600,
         useWebWorker: true,
       };
       const compressedFile = await imageCompression(file, options);
       console.log("Compressed file:", compressedFile);
-      setCompressedFile(compressedFile); 
+      setCompressedFile(compressedFile);
     } catch (error) {
       console.error("File compression failed:", error);
     }
   };
-  
 
-  
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
-    setSelectedFile(file); 
+    setSelectedFile(file);
     handleFileCompression(file);
   }, []);
-  
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: "image/*",
     maxSize: 10485760,
   });
-  
+
   const sendEmail = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target);
     if (compressedFile) {
       formData.append("coverphoto", compressedFile, compressedFile.name);
     } else if (selectedFile) {
       formData.append("coverphoto", selectedFile, selectedFile.name);
     }
-    
+
     try {
       const result = await emailjs.sendForm(
         "service_xkswua9",
@@ -92,12 +89,12 @@ function Forms() {
     } catch (error) {
       console.error("Error:", error.text);
     }
-    
+
     e.target.reset();
     setSelectedFile(null);
-    setCompressedFile(null); 
+    setCompressedFile(null);
   };
-  
+
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
     if (day === 1 || day === 6) {
@@ -105,9 +102,7 @@ function Forms() {
       e.target.value = "";
     }
   };
-  
-  
-  
+
   return (
     <div className="isolate bg-white dark:bg-gray-900 px-5">
       <Navbar />
@@ -115,7 +110,7 @@ function Forms() {
       <div
         className="mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
-        >
+      >
         <div
           className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
           style={{
@@ -468,18 +463,22 @@ function Forms() {
           </motion.div>
 
           <motion.div className="col-span-full">
-          <label htmlFor="coverphoto" className="block text-sm font-medium">
-            Cake Photo
-          </label>
-          <div
-            {...getRootProps({
-              className: classNames(
-                "bg-white mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10",
-                isDragActive ? "border-purple-500" : "border-gray-900/25"
-              ),
-            })}
-          >
-            <input {...getInputProps()} name="coverphoto" />
+            <label htmlFor="coverphoto" className="block text-sm font-medium">
+              Cake Photo
+            </label>
+            <div
+              {...getRootProps({
+                className: classNames(
+                  "bg-white mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10 dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6",
+                  isDragActive ? "border-purple-500" : "border-gray-900/25"
+                ),
+              })}
+            >
+              <h1 className="text-center text-white">
+                Did you have any inspiration photos you'd like to share with me?
+                If yes - please email me through our socials
+              </h1>
+              {/* <input {...getInputProps()} name="coverphoto" />
             <div className="text-center">
               <p>Drag and drop a file, or click to select one</p>
               <p className="text-xs">PNG, JPG, GIF up to 10MB</p>
@@ -495,10 +494,9 @@ function Forms() {
                   Compressed file size: {(compressedFile.size / 1024).toFixed(2)} KB
                 </div>
               )}
+            </div> */}
             </div>
-          </div>
-        </motion.div>
-
+          </motion.div>
         </div>
 
         <motion.div

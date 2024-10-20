@@ -54,9 +54,13 @@ function Testimonials() {
                     />
                   </div>
                   <p className="text-base leading-6 text-gray-600 mt-4">
-                    When our designs need an expert opinion or approval, I know
-                    I can rely on your agency Thank you for all your help-I will
-                    be recommending you to everyone
+                    I first discovered Emma at Rainbird's Cakes in July 2023. My
+                    twin daughters were turning 10 and I wanted something
+                    special to mark the milestone. My usual cake maker was
+                    unfortunately not operating anymore, so I was recommended
+                    Emma by my sister, who borught up her page. As we looked at
+                    all of Emma's GORGEOUS creations, I knew I had to have
+                    her!!!
                   </p>
                 </div>
               </div>
@@ -86,9 +90,14 @@ function Testimonials() {
                     />
                   </div>
                   <p className="text-base leading-6 text-gray-600 mt-4">
-                    When our designs need an expert opinion or approval, I know
-                    I can rely on your agency Thank you for all your help-I will
-                    be recommending you to everyone
+                    Ever since, I have continued to go back to Emma to make our
+                    celebrations that are a bit more speical. Her cakes and
+                    cupcakes are always fluffy and sooo moist. ALL of her
+                    flavours are delicious and her buttercream is utterly
+                    divine. Emma takes much pride and special care with all of
+                    her creations which is evident in the finished product you
+                    receive. And it's ALWAYS an absolute pleasure to deal with
+                    Emma, she is such a lovely person.
                   </p>
                 </div>
               </div>
