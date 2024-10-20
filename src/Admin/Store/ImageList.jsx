@@ -80,7 +80,7 @@ export default function ImageList() {
             <h2 className="text-4xl font-bold mb-6 text-center">
               {categoryName}
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-4 ml-10 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ml-10 mr-10 gap-4">
               {groupedImages[categoryName].map((image) => (
                 <ImageCard
                   key={image.imageId}
