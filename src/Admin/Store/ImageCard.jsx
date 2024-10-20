@@ -80,7 +80,7 @@ export default function ImageCard({ imageId, imageUrls, alt, name, description, 
     };
 
     return (
-        <div className="max-w-sm bg-white dark:bg-gray-700 border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+        <div className="max-w-sm bg-white dark:bg-gray-800 border border-gray-300 rounded-lg shadow-lg overflow-hidden">
             <div className="carousel w-full relative">
                 <div className="carousel-item w-full">
                     <img src={imageUrls[currentIndex]} alt={alt || name} className="w-full h-48 object-cover" />
