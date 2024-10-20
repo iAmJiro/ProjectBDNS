@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import emailjs from "emailjs-com";
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
+import { useDropzone } from "react-dropzone";
+import imageCompression from "browser-image-compression";
+
 
 // Helper function for class names
 function classNames(...classes) {
@@ -14,30 +17,87 @@ function Forms() {
   const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
   const [selectedFile, setSelectedFile] = useState(null);
   const [dragging, setDragging] = useState(false);
+  const [compressedFile, setCompressedFile] = useState(null);
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(true);
-  };
+  // const handleDragOver = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setDragging(true);
+  // };
 
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(false);
-  };
+  // const handleDragLeave = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setDragging(false);
+  // };
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(false);
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      setSelectedFile(e.dataTransfer.files[0]);
-      e.dataTransfer.clearData(); 
+  // const handleDrop = (e) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setDragging(false);
+  //   if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+  //     setSelectedFile(e.dataTransfer.files[0]);
+  //     e.dataTransfer.clearData(); 
+  //   }
+  // };
+  
+  const handleFileCompression = async (file) => {
+    try {
+      const options = {
+        maxSizeMB: 0.3, 
+        maxWidthOrHeight: 600, 
+        useWebWorker: true,
+      };
+      const compressedFile = await imageCompression(file, options);
+      console.log("Compressed file:", compressedFile);
+      setCompressedFile(compressedFile); 
+    } catch (error) {
+      console.error("File compression failed:", error);
     }
   };
+  
 
-
+  
+  const onDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
+    setSelectedFile(file); 
+    handleFileCompression(file);
+  }, []);
+  
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+    onDrop,
+    accept: "image/*",
+    maxSize: 10485760,
+  });
+  
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    if (compressedFile) {
+      formData.append("coverphoto", compressedFile, compressedFile.name);
+    } else if (selectedFile) {
+      formData.append("coverphoto", selectedFile, selectedFile.name);
+    }
+    
+    try {
+      const result = await emailjs.sendForm(
+        "service_xkswua9",
+        "template_cukpgi4",
+        e.target,
+        "go5Pq4Cfcv3H503_h"
+      );
+      console.log("Email sent:", result.text);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error("Error:", error.text);
+    }
+    
+    e.target.reset();
+    setSelectedFile(null);
+    setCompressedFile(null); 
+  };
+  
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
     if (day === 1 || day === 6) {
@@ -45,35 +105,9 @@ function Forms() {
       e.target.value = "";
     }
   };
-
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
   
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    // email used is bryantcavinta24@gmail.com
-    emailjs
-      .sendForm(
-        "service_xkswua9",
-        "template_cukpgi4",
-        e.target,
-        "go5Pq4Cfcv3H503_h"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setFormSubmitted(true); // Set the formSubmitted state to true
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-
-    e.target.reset();
-  };
-
+  
+  
   return (
     <div className="isolate bg-white dark:bg-gray-900 px-5">
       <Navbar />
@@ -81,7 +115,7 @@ function Forms() {
       <div
         className="mt-96 absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
-      >
+        >
         <div
           className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
           style={{
@@ -433,66 +467,37 @@ function Forms() {
             </div>
           </motion.div>
 
-          <motion.div
-            className="col-span-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 1.4 }}
+          <motion.div className="col-span-full">
+          <label htmlFor="coverphoto" className="block text-sm font-medium">
+            Cake Photo
+          </label>
+          <div
+            {...getRootProps({
+              className: classNames(
+                "bg-white mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10",
+                isDragActive ? "border-purple-500" : "border-gray-900/25"
+              ),
+            })}
           >
-            <label
-              htmlFor="cover-photo"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Cake photo
-            </label>
-            <div
-                className={`bg-white mt-2 dark:bg-slate-800 flex justify-center rounded-lg border border-dashed px-6 py-10 ${dragging ? "border-purple-500" : "border-gray-900/25"}`}
-                onDragOver={handleDragOver} 
-                onDragLeave={handleDragLeave} 
-                onDrop={handleDrop}
-            >
-            ``<div className="text-center">
-              <svg
-                className="mx-auto h-12 w-12 text-gray-300"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 2a5 5 0 00-5 5v1.757a.75.75 0 01-.22.53l-4.5 4.5a.75.75 0 001.06 1.06L8 10.561V19a3 3 0 003 3h7a3 3 0 003-3V9a5 5 0 00-5-5h-1a.75.75 0 010-1.5h1a6.5 6.5 0 016.5 6.5v10a4.5 4.5 0 01-4.5 4.5h-7A4.5 4.5 0 017 19v-8.439l-4.72 4.719a2.25 2.25 0 01-3.182-3.182l4.5-4.5a2.25 2.25 0 01.659-1.415V7a6.5 6.5 0 1113 0h-1a.75.75 0 010 1.5h1a5 5 0 00-5-5zm-2.72 8.72a.75.75 0 011.06 0L11 10.439V15a.75.75 0 01-1.5 0v-3.56l-2.22 2.22a.75.75 0 01-1.06-1.06l4-4.5z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              <div className="mt-4 flex text-sm leading-6 dark:text-white text-gray-600">
-                <label
-                  htmlFor="attachment"
-                  className="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                >
-                  <span>Upload a file</span>
-                  <input
-                    id="attachment"
-                    name="image"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                    className="sr-only"
-                  />
-                </label>
-                <p className="pl-1">or drag and drop</p>
-              </div>
-              <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            <input {...getInputProps()} name="coverphoto" />
+            <div className="text-center">
+              <p>Drag and drop a file, or click to select one</p>
+              <p className="text-xs">PNG, JPG, GIF up to 10MB</p>
 
               {selectedFile && (
-                <div className="mt-2 text-sm text-gray-600">
+                <div className="mt-2 text-sm">
                   Selected file: {selectedFile.name}
+                </div>
+              )}
+
+              {compressedFile && (
+                <div className="mt-2 text-sm">
+                  Compressed file size: {(compressedFile.size / 1024).toFixed(2)} KB
                 </div>
               )}
             </div>
           </div>
-
-          </motion.div>
+        </motion.div>
 
         </div>
 
