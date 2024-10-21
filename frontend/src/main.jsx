@@ -28,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router basename="/ProjectBDNS/">
       <Routes>
+        console.log('App is rendering');
         <Route path="/" element={<Home />} />
         <Route path="/Forms" element={<Forms />} />
         {/* <Route path="/Gallery" element={<Gallery />} /> */}
