@@ -39,6 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/Gallery" element={<ImageList />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/Privacy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<h1>404: Page Not Found</h1>} />
       </Routes>
       <Social />
     </Router>
