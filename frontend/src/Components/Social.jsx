@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import emailjs from "emailjs-com";
 import { SocialIcon } from "react-social-icons";
 
 const Social = () => {
@@ -136,8 +135,6 @@ const Social = () => {
             Terms of service
           </Link> */}
         </div>
-
-      
       </div>
     </div>
   );
