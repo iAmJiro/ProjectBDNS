@@ -4,7 +4,6 @@ import emailjs from "emailjs-com";
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";
-import imageCompression from "browser-image-compression";
 
 // Helper function for class names
 function classNames(...classes) {
