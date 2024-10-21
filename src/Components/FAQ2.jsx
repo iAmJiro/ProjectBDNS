@@ -17,9 +17,9 @@ const FAQ2 = () => {
   const [editQuestion, setEditQuestion] = useState("");
   const [editAnswer, setEditAnswer] = useState("");
 
-  const SERVICE_ID = "service_ujmuuix";
-  const TEMPLATE_ID = "template_vcro2nj";
-  const USER_ID = "WpHr0gPNNC_GAl9Bk";
+  const SERVICE_ID = "service_muyj6lo";
+  const TEMPLATE_ID = "template_pzz0vn5";
+  const USER_ID = "QzAiZpU9qCLPuyfur";
 
   useEffect(() => {
     const fetchFAQs = async () => {

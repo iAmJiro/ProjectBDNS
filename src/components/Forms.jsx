@@ -79,10 +79,10 @@ function Forms() {
 
     try {
       const result = await emailjs.sendForm(
-        "service_xkswua9",
-        "template_cukpgi4",
+        "service_muyj6lo",
+        "template_1uju9lj",
         e.target,
-        "go5Pq4Cfcv3H503_h"
+        "QzAiZpU9qCLPuyfur"
       );
       console.log("Email sent:", result.text);
       setFormSubmitted(true);
