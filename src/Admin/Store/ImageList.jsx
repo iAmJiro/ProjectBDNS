@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ImageCard from "./ImageCard";
 import CreateImageForm from "./CreateImageForm";
 import Navbar from "../../Components/Navbar";
+import { motion } from "framer-motion";
 
 export default function ImageList() {
   const [listImages, setListImages] = useState([]);
@@ -46,14 +47,20 @@ export default function ImageList() {
           }}
         />
       </div>
-      <div className="container mx-auto my-10 text-center">
-        <h1 className="text-6xl dark:text-white mb-8">Gallery</h1>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.5 }}
+      >
+        <div className="container mx-auto my-10 text-center">
+          <h1 className="text-5xl font-bold dark:text-white mb-8">Gallery</h1>
 
-        <p className="text-gray-600 dark:text-white text-3xl mb-12">
-          "Cakes that are as stunning as they are delicious, crafted to
-          perfection for every occasion!"
-        </p>
-      </div>
+          <p className="text-gray-600 dark:text-white text-1xl mb-12">
+            "Cakes that are as stunning as they are delicious, crafted to
+            perfection for every occasion!"
+          </p>
+        </div>
+      </motion.div>
 
       <div className="container mx-auto my-8">
         <div className="flex justify-center">

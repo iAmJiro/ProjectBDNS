@@ -47,13 +47,16 @@ const FAQ2 = () => {
 
   const handleDelete = async (faqId) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/${faqId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/${faqId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -75,14 +78,20 @@ const FAQ2 = () => {
 
   const handleSaveEdit = async (faqId) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/edit/${faqId}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ faqQuestion: editQuestion, faqAnswer: editAnswer }), // Correct request body format
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/edit/${faqId}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            faqQuestion: editQuestion,
+            faqAnswer: editAnswer,
+          }), // Correct request body format
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -92,7 +101,11 @@ const FAQ2 = () => {
 
       // Update the FAQ list locally
       const updatedFaqs = [...faqs];
-      updatedFaqs[editIndex] = { ...updatedFaqs[editIndex], faqQuestion: editQuestion, faqAnswer: editAnswer };
+      updatedFaqs[editIndex] = {
+        ...updatedFaqs[editIndex],
+        faqQuestion: editQuestion,
+        faqAnswer: editAnswer,
+      };
       setFaqs(updatedFaqs);
       setEditIndex(null); // Exit editing mode
     } catch (error) {
@@ -148,10 +161,15 @@ const FAQ2 = () => {
         />
       </div>
       <div className="lg:container lg:mx-auto lg:py-16 md:py-12 md:px-6 py-12 px-4 ">
-        <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 font-semibold text-gray-800 dark:text-white">
-          FAQ's
-        </h1>
-
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <h1 className="text-center lg:text-4xl text-3xl lg:leading-9 leading-7 font-semibold text-gray-800 dark:text-white">
+            FAQ's
+          </h1>
+        </motion.div>
         {sessionStorage.getItem("userGroup") === "1" && (
           <div className="flex justify-center mt-8">
             <button
@@ -193,7 +211,7 @@ const FAQ2 = () => {
                     onChange={(e) => setEditAnswer(e.target.value)}
                     className="w-full border p-2 mb-4"
                   />
-                  
+
                   <button
                     onClick={() => setEditIndex(null)}
                     className="bg-gray-500 text-white px-4 py-2 rounded-lg "
@@ -246,7 +264,9 @@ const FAQ2 = () => {
                         onClick={() => toggleOpen(index)}
                       >
                         <svg
-                          className={`transform ${openIndexes[index] ? "rotate-180" : "rotate-0"}`}
+                          className={`transform ${
+                            openIndexes[index] ? "rotate-180" : "rotate-0"
+                          }`}
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
@@ -332,7 +352,9 @@ const FAQ2 = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className={`px-4 py-2 rounded-lg bg-purple-500 text-white ${isSending ? "opacity-50" : ""}`}
+                className={`px-4 py-2 rounded-lg bg-purple-500 text-white ${
+                  isSending ? "opacity-50" : ""
+                }`}
                 disabled={isSending}
               >
                 {isSending ? "Sending..." : "Submit"}
