@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
+
 import Navbar from "./Navbar";
 import { motion } from "framer-motion";
 import { useDropzone } from "react-dropzone";

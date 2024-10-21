@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import FAQCreateForm from "./FAQCreateForm";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 const FAQ2 = () => {
   const [faqs, setFaqs] = useState([]);
