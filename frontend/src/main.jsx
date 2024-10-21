@@ -26,7 +26,7 @@ import TermsOfService from "./Components/TermsOfService.jsx";
 import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router basename="/">
+    <Router basename="/ProjectBDNS">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Forms" element={<Forms />} />
