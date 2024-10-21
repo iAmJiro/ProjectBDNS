@@ -419,6 +419,32 @@ function Forms() {
             className="sm:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 1.1 }}
+          >
+            <label
+              htmlFor="filling"
+              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
+            >
+              Buttercream Flavour
+            </label>
+            <div className="mt-2.5">
+              <select
+                name="buttercream"
+                id="buttercream"
+                className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+              >
+                <option value="">Choose a butercream for the cake</option>
+                <option value="None">None</option>
+                <option value="Vanilla">Vanilla</option>
+                <option value="Chocolate">Chocolate</option>
+                <option value="Salted Caramel">Salted Caramel</option>
+              </select>
+            </div>
+          </motion.div>
+          <motion.div
+            className="sm:col-span-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 1.2 }}
           >
             <label
