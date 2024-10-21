@@ -462,7 +462,12 @@ function Forms() {
             </div>
           </motion.div>
 
-          <motion.div className="col-span-full">
+          <motion.div
+            className="col-span-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 1.3 }}
+          >
             <label htmlFor="coverphoto" className="block text-sm font-medium">
               Cake Photo
             </label>

@@ -47,10 +47,9 @@ export default function ImageList() {
         />
       </div>
       <div className="container mx-auto my-10 text-center">
-        
-        <h1 className=" text-5xl font-bold dark:text-white mb-4">Products</h1>
+        <h1 className="text-6xl dark:text-white mb-8">Gallery</h1>
 
-        <p className="text-gray-600 dark:text-gray-300 text-2xl mb-6">
+        <p className="text-gray-600 dark:text-white text-3xl mb-12">
           "Cakes that are as stunning as they are delicious, crafted to
           perfection for every occasion!"
         </p>
@@ -80,7 +79,7 @@ export default function ImageList() {
             <h2 className="text-4xl font-bold mb-6 text-center">
               {categoryName}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ml-10 mr-10 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-4 ml-10 gap-4">
               {groupedImages[categoryName].map((image) => (
                 <ImageCard
                   key={image.imageId}
