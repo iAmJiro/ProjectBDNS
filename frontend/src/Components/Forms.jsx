@@ -97,8 +97,8 @@ function Forms() {
 
   const handleDateChange = (e) => {
     const day = new Date(e.target.value).getDay();
-    if (day === 1 || day === 6) {
-      alert("Closed on Saturday and Monday");
+    if (day === 1 || day === 0) {
+      alert("Closed on Sunday and Monday");
       e.target.value = "";
     }
   };
@@ -240,29 +240,6 @@ function Forms() {
             className="sm:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.7 }}
-          >
-            <label
-              htmlFor="address"
-              className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
-            >
-              Full address
-            </label>
-            <div className="mt-2.5">
-              <input
-                placeholder="123 Address Street"
-                type="text"
-                name="address"
-                id="address"
-                className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-              />
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="sm:col-span-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.8 }}
           >
             <label
@@ -316,7 +293,7 @@ function Forms() {
                 onChange={handleDateChange}
               />
               <span className="ml-4 text-sm text-gray-500 dark:text-white">
-                We are closed on Saturday and Monday
+                We are closed on Sunday and Monday
               </span>
             </div>
           </motion.div>
@@ -376,6 +353,9 @@ function Forms() {
                 <option value="DF Chocolate">DF Chocolate</option>
                 <option value="DF Vanilla">DF Vanilla</option>
                 <option value="GF Vanilla">GF Vanilla</option>
+                <option value="Vegan Chocolate">Vegan Chocolate</option>
+                <option value="Vegan Vanilla">Vegan Vanilla</option>
+
                 <option value="GF chocolate almond">
                   GF chocolate almond (+$15)
                 </option>
@@ -451,11 +431,11 @@ function Forms() {
               htmlFor="tier"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Number of Tiers
+              How many people are you catering to?
             </label>
             <div className="mt-2.5">
               <input
-                placeholder="1, 2, 3 or more"
+                placeholder="A lot!"
                 type="text"
                 name="tier"
                 id="tier"
