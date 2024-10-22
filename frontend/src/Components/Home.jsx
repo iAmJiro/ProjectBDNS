@@ -5,6 +5,7 @@ import HomeNav from "./HomeNav";
 import GalleryHome from "./GalleryHome";
 import OrderInstructions from "./OrderInstructions";
 import HomeAbout from "./HomeAbout";
+import homemadeImage from "/public/homeremade2.png";
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -27,7 +28,11 @@ function Home() {
   return (
     <motion.div className="motherdivhome" initial="hidden" animate="visible">
       <motion.div className="grid-container">
-        <motion.header className="headercss" variants={headerVariants}>
+        <motion.header
+          className="headercss"
+          style={{ backgroundImage: `url(${homemadeImage})` }}
+          variants={headerVariants}
+        >
           <nav className="navcss">
             <HomeNav />
           </nav>
