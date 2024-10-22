@@ -26,7 +26,7 @@ import TermsOfService from "./Components/TermsOfService.jsx";
 import PrivacyPolicy from "./Components/PrivacyPolicy.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router basename="/ProjectBDNS">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Forms" element={<Forms />} />
@@ -39,7 +39,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/Gallery" element={<ImageList />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/Privacy" element={<PrivacyPolicy />} />
-        <Route path="*" element={<h1>404: Page Not Found</h1>} />
       </Routes>
       <Social />
     </Router>
