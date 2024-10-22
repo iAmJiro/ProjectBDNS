@@ -53,7 +53,9 @@ export default function ImageList() {
         transition={{ duration: 0.4, delay: 0.5 }}
       >
         <div className="container mx-auto my-10 text-center">
-          <h1 className="text-5xl font-bold dark:text-white mb-8">Gallery</h1>
+          <h1 className="text-5xl font-bold dark:text-white mb-8 min-h-full">
+            Gallery
+          </h1>
 
           <p className="text-gray-600 dark:text-white text-1xl mb-12">
             "Cakes that are as stunning as they are delicious, crafted to
