@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/d4bdd6fe-cb07-442b-b468-890e21c806c8/resourceGroups/AppService-RG/providers/Microsoft.Web/sites/thirdrainbirdapi",
+  "appService.deploySubpath": "Backend"
+}
