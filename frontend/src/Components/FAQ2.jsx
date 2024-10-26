@@ -24,7 +24,7 @@ const FAQ2 = () => {
   useEffect(() => {
     const fetchFAQs = async () => {
       try {
-        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq`;
+        const url = `${import.meta.env.VITE_APP_BACKEND_URL}/api/FAQ`;
         const response = await fetch(url);
         const data = await response.json();
         setFaqs(data);
@@ -48,7 +48,7 @@ const FAQ2 = () => {
   const handleDelete = async (faqId) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/${faqId}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/FAQ/${faqId}`,
         {
           method: "DELETE",
           headers: {
@@ -79,7 +79,7 @@ const FAQ2 = () => {
   const handleSaveEdit = async (faqId) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACKEND_URL}/api/faq/edit/${faqId}`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/FAQ/edit/${faqId}`,
         {
           method: "PUT",
           headers: {
