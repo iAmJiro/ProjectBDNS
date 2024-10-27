@@ -10,10 +10,11 @@ const CreateImageForm = ({ isOpen, onClose }) => {
   const imagePrice = useRef('');
   const categoryId = useRef('');
 
-  const [uploadedImages, setUploadedImages] = useState([]); 
+  const [uploadedFiles, setUploadedFiles] = useState([]); 
   const [uploadError, setUploadError] = useState('');
   const [isUploading, setIsUploading] = useState(false);
 
+  // Handle file drop and upload to backend
   const onDrop = (acceptedFiles) => {
     setIsUploading(true);
     setUploadError('');
@@ -27,9 +28,9 @@ const CreateImageForm = ({ isOpen, onClose }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Response from backend:", data); // Log backend response
+        console.log('Response from backend:', data); // Log backend response
         if (data.url) {
-          setUploadedImages((prevFiles) => [...prevFiles, data.url]); 
+          setUploadedFiles((prevFiles) => [...prevFiles, data.url]); // Store URLs of uploaded files
         } else {
           setUploadError('Failed to upload image.');
         }
@@ -44,6 +45,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
+  // Handle form submission
   const SubmitFormHandler = () => {
     const name = imageName.current.value;
     const description = imageDescription.current.value;
@@ -54,21 +56,21 @@ const CreateImageForm = ({ isOpen, onClose }) => {
       name,
       description,
       price,
-      imageUrls: uploadedImages, 
+      imageUrls: uploadedFiles, // Use the uploaded image URLs
       categoryId: category,
     };
 
     fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/image/create`, {
       method: 'POST',
-      body: JSON.stringify(newImageRequest),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`, // Auth if needed
       },
+      body: JSON.stringify(newImageRequest),
     })
       .then((res) => res.json())
       .then((success) => {
-        if (success) navigate(0); 
+        if (success) navigate(0); // Reload page on success
       })
       .catch((error) => {
         console.error('Error creating image:', error);
@@ -82,8 +84,8 @@ const CreateImageForm = ({ isOpen, onClose }) => {
       <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md w-1/3">
         <h2 className="text-2xl font-bold mb-4">Create New Product</h2>
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Images
-          </label>
+          Images
+        </label>
         <div {...getRootProps()} className="p-4 border-2 border-dashed rounded">
           <input {...getInputProps()} />
           {isUploading ? (
@@ -95,9 +97,9 @@ const CreateImageForm = ({ isOpen, onClose }) => {
         {uploadError && <p className="text-red-500">{uploadError}</p>}
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {uploadedImages.map((url, index) => (
+          {uploadedFiles.map((url, index) => (
             <p key={index} className="text-gray-700 dark:text-white">
-              {url.split('/').pop()} 
+              {url.split('/').pop()}
             </p>
           ))}
         </div>

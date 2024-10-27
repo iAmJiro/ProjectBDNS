@@ -85,25 +85,26 @@ namespace Backend.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded");
 
-            var frontendUploadsFolder = Path.Combine(
+            var backendUploadsFolder = Path.Combine(
                 Directory.GetCurrentDirectory(),
-                "../frontend/public/uploads"
+                "wwwroot/uploads"
             );
 
-            Console.WriteLine($"Resolved Uploads Folder Path: {frontendUploadsFolder}");
+            Console.WriteLine($"Resolved Uploads Folder Path: {backendUploadsFolder}");
 
-            Directory.CreateDirectory(frontendUploadsFolder);
+            Directory.CreateDirectory(backendUploadsFolder);
 
             var fileName = Path.GetFileName(file.FileName);
-            var filePath = Path.Combine(frontendUploadsFolder, fileName);
+            var filePath = Path.Combine(backendUploadsFolder, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
 
-            var imageUrl = $"/uploads/{fileName}";
+            var imageUrl = $"/uploads/{fileName}";  // Relative path to access from frontend
             return Ok(new { Url = imageUrl });
         }
+
     }
 }
