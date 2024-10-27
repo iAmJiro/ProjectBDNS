@@ -102,9 +102,11 @@ namespace Backend.Controllers
                 await file.CopyToAsync(stream);
             }
 
-            var imageUrl = $"/uploads/{fileName}";  // Relative path to access from frontend
+            var baseUrl = $"{Request.Scheme}://{Request.Host}";  
+            var imageUrl = $"{baseUrl}/uploads/{fileName}";       
             return Ok(new { Url = imageUrl });
         }
+
 
     }
 }
