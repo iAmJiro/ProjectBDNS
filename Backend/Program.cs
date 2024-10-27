@@ -92,7 +92,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins",
         builder =>
         {
-            builder.WithOrigins("https://rainbirdscakes.co.nz").AllowAnyHeader().AllowAnyMethod();
+            builder.WithOrigins("https://rainbirdscakes.co.nz")
+              .WithHeaders("Access-Control-Allow-Origin")
+              .AllowAnyMethod();
         });
 });
 
