@@ -485,7 +485,7 @@ function Forms() {
                 ),
               })}
             >
-              <h1 className="text-center text-white">
+              <h1 className="text-center text-black dark:text-white">
                 Did you have any inspiration photos you'd like to share with me?
                 If yes - please email me through our socials
               </h1>
