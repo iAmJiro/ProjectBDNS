@@ -1,9 +1,7 @@
 using System.Text;
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Backend.Models;
@@ -18,7 +16,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Configure Swagger with JWT Authentication
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -33,7 +32,7 @@ builder.Services.AddSwaggerGen(options =>
         BearerFormat = "JWT"
     });
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
             new OpenApiSecurityScheme
@@ -44,11 +43,12 @@ builder.Services.AddSwaggerGen(options =>
                     Id = "Bearer"
                 }
             },
-            new List<string>()
+            Array.Empty<string>()
         }
     });
 });
 
+// Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -57,15 +57,11 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    // This is the important part!!
     options.MapInboundClaims = false;
 
     var signingKeyData = config["JwtSettings:Key"];
     var signingKeyBytes = Encoding.UTF8.GetBytes(signingKeyData!);
     var signingKey = new SymmetricSecurityKey(signingKeyBytes);
-
-    var issuer = config["JwtSettings:Issuer"];
-    var audience = config["JwtSettings:Audience"];
 
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -73,21 +69,22 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = issuer,
-        ValidAudience = audience,
+        ValidIssuer = config["JwtSettings:Issuer"],
+        ValidAudience = config["JwtSettings:Audience"],
         IssuerSigningKey = signingKey
     };
 });
 
+// Add Authorization and Policy Configuration
 builder.Services.AddAuthorization(options =>
 {
-    //TODO: Add some policies here
     options.AddPolicy("IsAdmin", policy =>
     {
-        policy.RequireClaim("role", "1");
+        policy.RequireClaim("role", "1"); // Customize based on your role requirements
     });
 });
 
+// Add Scoped Services, CORS, and Others
 builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddCors();
@@ -104,18 +101,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// app.UseCors(option => option.AllowAnyHeader()
-//     .AllowAnyMethod()
-//     .WithOrigins("http://localhost:5173"));
+// Configure CORS Policy for development; restrict in production as needed
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
-
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-
-
 app.Run();
-

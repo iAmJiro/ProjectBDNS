@@ -24,6 +24,7 @@ namespace Backend.Controllers
 
         // api/Item/all
         [HttpGet, Route("all")]
+        [AllowAnonymous]
 
         public ActionResult<List<GetImageResponse>> GetAllItems()
         {

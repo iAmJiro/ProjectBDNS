@@ -27,6 +27,7 @@ namespace Backend.Controllers
 
         // GET: api/FAQ
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<FAQ>>> GetFAQ()
         {
             return await _context.FAQs.ToListAsync();
