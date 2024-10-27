@@ -101,7 +101,8 @@ builder.Services.AddScoped<AuthService>();
 
 
 var app = builder.Build();
-app.UseCors("AllowSpecificOrigins");
+// app.UseCors("AllowSpecificOrigins");
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -114,7 +115,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 // Configure CORS Policy for development; restrict in production as needed
-// app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
 
 app.UseAuthentication();
 app.UseAuthorization();
