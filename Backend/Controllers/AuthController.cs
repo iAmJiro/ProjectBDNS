@@ -7,6 +7,7 @@ using Backend.Dtos;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers
 {
