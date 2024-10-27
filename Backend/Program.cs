@@ -87,7 +87,14 @@ builder.Services.AddAuthorization(options =>
 // Add Scoped Services, CORS, and Others
 builder.Services.AddScoped<AuthService>();
 
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+            builder.WithOrigins("https://rainbirdscakes.co.nz").AllowAnyHeader().AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
@@ -102,7 +109,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 // Configure CORS Policy for development; restrict in production as needed
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
+// app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
+app.UseCors("AllowSpecificOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();
