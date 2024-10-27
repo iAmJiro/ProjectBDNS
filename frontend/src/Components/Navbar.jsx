@@ -39,7 +39,7 @@ export default function Navbar() {
 
           {/* Hamburger Icon for Mobile */}
           <button
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-black dark:text-white focus:outline-none"
             onClick={toggleMenu}
           >
             <svg

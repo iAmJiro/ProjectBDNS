@@ -25,8 +25,8 @@ function OrderInstructions() {
         animate={isInView ? "visible" : "hidden"}
         variants={textVariants}
       >
-        <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0">
-          <div className="w-80 sm:w-auto flex flex-col justify-start items-start">
+        <div className="flex flex-col lg:flex-row justify-center mx-8 items-center space-y-6 lg:space-y-0">
+          <div className="w-80 sm:w-auto  flex flex-col justify-start items-start">
             <div>
               <p className="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800">
                 How to order
