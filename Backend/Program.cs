@@ -14,7 +14,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbContext")
     ?? throw new InvalidOperationException("Connection string 'AppDbContext' not found.")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+            builder.WithOrigins("https://rainbirdscakes.co.nz")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+        });
+});
 // Add services to the container.
+
 builder.Services.AddControllers();
 
 // Configure Swagger with JWT Authentication
@@ -87,19 +99,10 @@ builder.Services.AddAuthorization(options =>
 // Add Scoped Services, CORS, and Others
 builder.Services.AddScoped<AuthService>();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSpecificOrigins",
-        builder =>
-        {
-            builder.WithOrigins("https://rainbirdscakes.co.nz")
-              .AllowAnyHeader()
-              .AllowAnyMethod()
-              .AllowCredentials();
-        });
-});
+
 
 var app = builder.Build();
+app.UseCors("AllowSpecificOrigins");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -113,7 +116,6 @@ app.UseStaticFiles();
 
 // Configure CORS Policy for development; restrict in production as needed
 // app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());    
-app.UseCors("AllowSpecificOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();
