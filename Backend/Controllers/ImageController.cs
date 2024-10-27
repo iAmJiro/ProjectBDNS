@@ -51,7 +51,7 @@ namespace Backend.Controllers
             var itemToEdit = db.Images.Find(id);
             if (itemToEdit == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
 
             itemToEdit.Name = request.Name;
@@ -60,7 +60,7 @@ namespace Backend.Controllers
 
             var numRowsChanged = db.SaveChanges();
 
-            return Ok(numRowsChanged == 1); 
+            return Ok(numRowsChanged == 1);
         }
 
 
@@ -85,11 +85,13 @@ namespace Backend.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded");
 
+            var frontendUploadsFolder = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "../frontend/public/uploads"
+            );
 
-            var frontendUploadsFolder = Path.Combine("C:\\Users\\steph\\OneDrive\\Documents\\A_School\\2024\\IT701 - Project\\MainProject\\ProjectBDNS\\public", "uploads");
             Directory.CreateDirectory(frontendUploadsFolder);
 
-            //save file
             var fileName = Path.GetFileName(file.FileName);
             var filePath = Path.Combine(frontendUploadsFolder, fileName);
 
@@ -98,7 +100,7 @@ namespace Backend.Controllers
                 await file.CopyToAsync(stream);
             }
 
-            var imageUrl = $"/ProjectBDNS/uploads/{file.FileName}";
+            var imageUrl = $"/uploads/{fileName}";
             return Ok(new { Url = imageUrl });
         }
     }
