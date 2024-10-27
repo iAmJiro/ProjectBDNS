@@ -27,6 +27,7 @@ const CreateImageForm = ({ isOpen, onClose }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("Response from backend:", data); // Log backend response
         if (data.url) {
           setUploadedImages((prevFiles) => [...prevFiles, data.url]); 
         } else {

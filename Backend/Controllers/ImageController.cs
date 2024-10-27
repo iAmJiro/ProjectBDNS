@@ -90,6 +90,8 @@ namespace Backend.Controllers
                 "../frontend/public/uploads"
             );
 
+            Console.WriteLine($"Resolved Uploads Folder Path: {frontendUploadsFolder}");
+
             Directory.CreateDirectory(frontendUploadsFolder);
 
             var fileName = Path.GetFileName(file.FileName);
