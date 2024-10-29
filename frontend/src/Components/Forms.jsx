@@ -510,22 +510,38 @@ function Forms() {
           </motion.div>
         </div>
 
-        <motion.div
-          className="mt-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 1.5 }}
-        >
-          <button
-            type="submit"
-            className="block w-full  rounded-md bg-purple-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        {!formSubmitted ? (
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 1.5 }}
           >
-            Request a quote
-          </button>
-        </motion.div>
+            <button
+              type="submit"
+              className="block w-full rounded-md bg-purple-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Request a quote
+            </button>
+          </motion.div>
+        ) : (
+          <motion.div
+            className="mt-10 text-center text-purple-600 font-semibold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0 }}
+          >
+           <p className="text-purple-600 text-2xl font-semibold">
+              Your form has been successfully submitted!
+            </p>
+            <p className="mt-2 text-xl text-gray-600">
+              I will get back to you as soon as possible!
+            </p>
+          </motion.div>
+        )}
       </motion.form>
 
-      {formSubmitted && alert("Your form has been successfully submitted!")}
+      {/* {formSubmitted && alert("Your form has been successfully submitted!")} */}
     </div>
   );
 }
