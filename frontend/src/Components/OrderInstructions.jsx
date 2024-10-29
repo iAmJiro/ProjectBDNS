@@ -42,7 +42,7 @@ function OrderInstructions() {
             <div className="mt-16 w-full">
               <Link onClick={scrollToTop} to="/Forms">
                 <motion.button
-                  className="px-4 bg-gray-900 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-gray-700"
+                  className="px-4 bg-purple-600 flex justify-between items-center w-full lg:w-72 h-14 text-white hover:bg-purple-900"
                   whileHover={{ scale: 1.05 }}
                 >
                   <p className="text-xl font-medium leading-5">
