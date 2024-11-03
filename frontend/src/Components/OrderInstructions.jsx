@@ -82,7 +82,7 @@ function OrderInstructions() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-5 xl:space-x-8 space-y-4 sm:space-y-0 sm:space-y-5 lg:space-y-5 xl:space-y-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-x-5 xl:space-x-8 space-y-4  sm:space-y-5 lg:space-y-5 xl:space-y-8">
             <div>
               <img
                 className="hidden lg:block"
@@ -95,7 +95,7 @@ function OrderInstructions() {
                 alt="sofa"
               />
             </div>
-            <div className="flex flex-col justify-center items-center space-y-4 sm:space-y-0 sm:space-y-5 lg:space-y-5 xl:space-y-8">
+            <div className="flex flex-col justify-center items-center space-y-4  sm:space-y-5 lg:space-y-5 xl:space-y-8">
               <div>
                 <img
                   className="hidden lg:block"

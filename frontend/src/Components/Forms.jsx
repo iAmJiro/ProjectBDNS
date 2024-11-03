@@ -11,6 +11,14 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(function() {
+    alert('Email address copied to clipboard!');
+  }).catch(function(err) {
+    alert('Failed to copy email: ', err);
+  });
+}
+
 function Forms() {
   const [agreed, setAgreed] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false); // State to control the visibility of the confirmation message
@@ -152,7 +160,7 @@ function Forms() {
               htmlFor="fname"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              First name
+              First name <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <input
@@ -160,6 +168,7 @@ function Forms() {
                 name="fname"
                 id="fname"
                 autoComplete="given-name"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="First Name"
               />
@@ -175,7 +184,7 @@ function Forms() {
               htmlFor="lname"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Last name
+              Last name <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <input
@@ -183,6 +192,7 @@ function Forms() {
                 name="lname"
                 id="lname"
                 autoComplete="family-name"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                 placeholder="Last Name"
               />
@@ -199,7 +209,7 @@ function Forms() {
               htmlFor="email"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Email
+              Email <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <input
@@ -208,6 +218,7 @@ function Forms() {
                 name="email"
                 id="email"
                 autoComplete="email"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               />
             </div>
@@ -223,7 +234,7 @@ function Forms() {
               htmlFor="contact"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Contact number
+              Contact number <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <input
@@ -231,6 +242,7 @@ function Forms() {
                 type="tel"
                 name="contact"
                 id="contact"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               />
             </div>
@@ -246,16 +258,17 @@ function Forms() {
               htmlFor="eventt"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Event type
+              Event type <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <select
+               required
                 name="eventt"
                 id="eventt"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
                 <option value="" disabled selected hidden>
-                  Choose an event type
+                  Choose an event type 
                 </option>
                 <option value="Birthday">Birthday</option>
                 <option value="Anniversary">Anniversary</option>
@@ -282,10 +295,11 @@ function Forms() {
               htmlFor="eventd"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Event date
+              Event date <span className="text-red-500"> *</span>
             </label>
             <div className="flex items-center mt-2.5">
               <input
+                required
                 type="date"
                 name="eventd"
                 id="eventd"
@@ -308,7 +322,7 @@ function Forms() {
               htmlFor="eventth"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Event Theme
+              Event Theme <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <input
@@ -316,6 +330,7 @@ function Forms() {
                 type="text"
                 name="eventth"
                 id="eventth"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               />
             </div>
@@ -331,12 +346,13 @@ function Forms() {
               htmlFor="flavour"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Cake Flavour
+              Cake Flavour <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <select
                 name="flavour"
                 id="flavour"
+                required
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
                 <option value="">Choose a cake flavour</option>
@@ -372,10 +388,11 @@ function Forms() {
               htmlFor="filling"
               className="block text-sm font-semibold leading-6 text-gray-800 dark:text-white"
             >
-              Cake Filling Options
+              Cake Filling Options <span className="text-red-500"> *</span>
             </label>
             <div className="mt-2.5">
               <select
+              required
                 name="filling"
                 id="filling"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
@@ -413,7 +430,7 @@ function Forms() {
                 id="buttercream"
                 className="bg-white dark:bg-slate-800 dark:text-white block w-full rounded-md border-0 px-3.5 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               >
-                <option value="">Choose a butercream for the cake</option>
+                <option value="">Choose a Buttercream for the cake</option>
                 <option value="None">None</option>
                 <option value="Vanilla">Vanilla</option>
                 <option value="Chocolate">Chocolate</option>
@@ -487,7 +504,13 @@ function Forms() {
             >
               <h1 className="text-center text-gray-500 dark:text-gray-400">
                 Did you have any inspiration photos you'd like to share with me?
-                If yes - please email me through our socials
+                If yes - please email me {" "}
+                <span
+                  onClick={() => copyToClipboard('rainbirdscakes@gmail.com')}
+                  className="text-purple-500 underline hover:text-purple-700 cursor-pointer"
+                >
+                   rainbirdscakes@gmail.com
+                </span>
               </h1>
               {/* <input {...getInputProps()} name="coverphoto" />
             <div className="text-center">
@@ -531,7 +554,7 @@ function Forms() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0 }}
           >
-           <p className="text-purple-600 text-2xl font-semibold">
+            <p className="text-purple-600 text-2xl font-semibold">
               Your form has been successfully submitted!
             </p>
             <p className="mt-2 text-xl text-gray-600">
