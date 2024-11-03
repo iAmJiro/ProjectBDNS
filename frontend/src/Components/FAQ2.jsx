@@ -141,9 +141,9 @@ const FAQ2 = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="">
@@ -170,6 +170,17 @@ const FAQ2 = () => {
             FAQ's
           </h1>
         </motion.div>
+
+        {loading && (
+          <div className="flex space-x-2 justify-center items-center mt-4">
+          <span className="sr-only">Loading...</span>
+          <div className="h-5 w-5 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+          <div className="h-5 w-5 bg-purple-700  rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+          <div className="h-5 w-5 bg-purple-900  rounded-full animate-bounce"></div>
+        </div>
+        )}
+
+        
         {sessionStorage.getItem("userGroup") === "1" && (
           <div className="flex justify-center mt-8">
             <button
@@ -188,7 +199,7 @@ const FAQ2 = () => {
             faqs={faqs}
           />
         )}
-
+          {!loading && (
         <div className="lg:w-8/12 w-full mx-auto">
           {faqs.map((faq, index) => (
             <div key={faq.faqId}>
@@ -303,9 +314,14 @@ const FAQ2 = () => {
                   </AnimatePresence>
                 </motion.div>
               )}
+              
             </div>
+            
           ))}
+          
         </div>
+        )}
+        
 
         {/* EmailJS Form */}
         <div className="mt-12 lg:w-8/12 w-full mx-auto">
@@ -373,6 +389,7 @@ const FAQ2 = () => {
             )}
           </form>
         </div>
+        
       </div>
     </div>
   );

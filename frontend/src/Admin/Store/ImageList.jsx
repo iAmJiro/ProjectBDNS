@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 
 export default function ImageList() {
   const [listImages, setListImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  
 
   const categories = [
     { categoryId: 1, name: "Cake" },
@@ -16,7 +18,14 @@ export default function ImageList() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/image/all`)
       .then((res) => res.json())
-      .then((body) => setListImages(body));
+      .then((body) => {
+        setListImages(body);
+        setIsLoading(false); 
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        setIsLoading(false); 
+      });
   }, []);
 
   const groupImagesByCategory = (images) => {
@@ -31,6 +40,8 @@ export default function ImageList() {
   };
 
   const groupedImages = groupImagesByCategory(listImages);
+
+  
 
   return (
     <>
@@ -61,9 +72,17 @@ export default function ImageList() {
             "Cakes that are as stunning as they are delicious, crafted to
             perfection for every occasion!"
           </p>
+          {isLoading && (
+            <div className="flex space-x-2 justify-center items-center mt-4">
+              <span className="sr-only">Loading...</span>
+              <div className="h-5 w-5 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+              <div className="h-5 w-5 bg-purple-700  rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+              <div className="h-5 w-5 bg-purple-900  rounded-full animate-bounce"></div>
+            </div>
+          )}
         </div>
       </motion.div>
-
+      {!isLoading && (
       <div className="container mx-auto my-8">
         <div className="flex justify-center">
           {sessionStorage.getItem("userGroup") === "1" && (
@@ -107,6 +126,7 @@ export default function ImageList() {
           </div>
         ))}
       </div>
+      )}
     </>
   );
 }
