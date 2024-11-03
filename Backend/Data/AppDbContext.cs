@@ -35,8 +35,8 @@ namespace Backend.Models
                 {
                     RoleId = 1,
                     UserId = 1,
-                    Username = "admin",
-                    Password = "admin",
+                    Username = "emmaleerainbird",
+                    Password = "CaKesareYum!!231w0s",
                 },
                 new User
                 {
