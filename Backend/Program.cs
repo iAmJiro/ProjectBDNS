@@ -121,6 +121,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//so migration works on azure
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
